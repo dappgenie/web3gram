@@ -1,0 +1,28 @@
+{
+  "recommendations": [
+    "antfu.where-am-i",
+    "antfu.theme-vitesse",
+    "file-icons.file-icons",
+    "dbaeumer.vscode-eslint",
+    "github.copilot",
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker",
+    "antfu.iconify",
+    "antfu.unocss",
+    "antfu.vite",
+    "antfu.goto-alias",
+    "csstools.postcss",
+    "vue.volar",
+    "lokalise.i18n-ally",
+    "amodio.tsl-problem-matcher",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "github.vscode-pull-request-github",
+    "mpontus.tab-cycle",
+    "richie5um2.vscode-sort-json",
+    "unional.vscode-sort-package-json",
+    "wakatime.vscode-wakatime",
+    "znck.grammarly",
+    "sudoaugustin.vslook"
+  ]
+}
