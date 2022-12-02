@@ -15,7 +15,6 @@ import QRCodeModal from '@walletconnect/qrcode-modal'
 import NodeClient, { WhiteListSignatureResponse } from '@biconomy/node-client'
 import SocialLogin from '@biconomy/web3-auth'
 import { ChainId, supportedChains } from '~/utils/factories/chainConfig';
-const { setUserInfo, setWeb3State } = useUserStore()
 
 type DefaultSocialLoginConfig = {
   backendUrl: string
@@ -109,43 +108,42 @@ export class useSocialLogin {
       if (web3AuthCore && web3AuthCore.provider) {
         console.log("🚀 ~ file: socialLogin.ts ~ line 111 ~ useSocialLogin ~ web3AuthCore.provider", web3AuthCore.provider)
         this.provider = web3AuthCore.provider
-        const web3Provider = new ethers.providers.Web3Provider(web3AuthCore.provider);
-        const signer = web3Provider.getSigner();
-        const address = await signer.getAddress();
-        const chain = await web3Provider.getNetwork();
-        const wallet = new SmartAccount(web3Provider, {
-          activeNetworkId: chainId,
-          supportedNetworksIds: supportedChains,
-          networkConfig: [
-            {
-              chainId: ChainId.POLYGON_MUMBAI,
-              dappAPIKey: "59fRCMXvk.8a1652f0-b522-4ea7-b296-98628499aee3",
-            },
-            {
-              chainId: ChainId.POLYGON_MAINNET,
-              // dappAPIKey: todo
-            },
-          ],
-        });
-        console.log("wallet", wallet);
-  
-        // Wallet initialization to fetch wallet info
-        const smartAccount = await wallet.init();
-        console.info("smartAccount", smartAccount);
-        const { data } = await smartAccount.getSmartAccountsByOwner({
-          chainId: Number(chainId),
-          owner: address,
-        });
-        console.info("getSmartAccountsByOwner", data[0]);
-        setWeb3State({
-          address,
-          network: chain,
-          smartContract: data[0].smartAccountAddress
-        })
+      }
+      const web3Provider = new ethers.providers.Web3Provider(web3AuthCore.provider);
+      const signer = web3Provider.getSigner();
+      const address = await signer.getAddress();
+      const chain = await web3Provider.getNetwork();
+      const wallet = new SmartAccount(web3Provider, {
+        activeNetworkId: chainId,
+        supportedNetworksIds: supportedChains,
+        networkConfig: [
+          {
+            chainId: ChainId.POLYGON_MUMBAI,
+            dappAPIKey: "59fRCMXvk.8a1652f0-b522-4ea7-b296-98628499aee3",
+          },
+          {
+            chainId: ChainId.POLYGON_MAINNET,
+            // dappAPIKey: todo
+          },
+        ],
+      });
+
+      // Wallet initialization to fetch wallet info
+      const smartAccount = await wallet.init();
+      const { data } = await smartAccount.getSmartAccountsByOwner({
+        chainId: Number(chainId),
+        owner: address,
+      });
+      const web3State = {
+        address,
+        network: chain,
+        smartContract: data[0].smartAccountAddress
       }
       this.isInit = true
+      return web3State
     } catch (error) {
       console.error(error)
+      return error
     }
   }
 
@@ -190,14 +188,7 @@ export class useSocialLogin {
     if (this.web3auth) {
       console.log("🚀 ~🚀 ~🚀 ~🚀 ~ file: socialLogin.ts ~ line 192 ~ useSocialLogin ~ getUserInfo ~ this.web3auth", this.web3auth)
       const userInfo = await this.web3auth.getUserInfo()
-      // console.log("🚀 ~ file: socialLogin.ts ~ line 176 ~ useSocialLogin ~ getUserInfo ~ this.web3auth", this.web3auth)
       this.userInfo = userInfo
-      setUserInfo(userInfo)
-  // setWeb3State({
-  //   signer: signer,
-  //   address: gotAccount,
-  //   network: network
-  // })
       return userInfo
     }
     console.log("🚀 ~ file: socialLogin.ts ~ line 192 ~ useSocialLogin ~ getUserInfo ~ this.web3aut", this.web3auth)

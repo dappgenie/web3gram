@@ -1,7 +1,12 @@
 <script lang="ts" setup>import { ethers } from 'ethers';
 import logo from '~/assets/images/icon.svg'
 import { activeChainId } from '~/utils/factories/chainConfig';
+interface ILoginEmits {
+  (e: 'close'): void
+}
+const emit = defineEmits<ILoginEmits>()
 const { address } = storeToRefs(useUserStore())
+const { setUserInfo, setWeb3State } = useUserStore()
 
 const isOpen = ref(true)  
 
@@ -12,15 +17,23 @@ const handleEmailSubmit = (event: any) => {
   socialLogin.emailLogin(email.value)
 }
 onMounted(async () => {
-  await socialLogin.init(ethers.utils.hexValue(activeChainId))
-  if(address.value)
-    await socialLogin.getUserInfo();
+  const web3State = await socialLogin.init(ethers.utils.hexValue(activeChainId))
+  setWeb3State(web3State)
+  if(address.value) {
+    const userInfo = await socialLogin.getUserInfo()
+    setUserInfo(userInfo)
+  }
+   
   await socialLoginSDK;
 })
+const closeTab = () => {
+  isOpen.value = false
+  emit('close')
+}
 </script>
 
 <template>
-  <ModalCustom @close="isOpen = false" :show="isOpen">
+  <ModalCustom @close="closeTab()" :show="isOpen">
     <template #content>
       <div class="px-7">
           <div class="flex justify-start items-center">

@@ -1,13 +1,11 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'IndexPage',
-})
 const { address } = storeToRefs(useUserStore())
 const name = $ref(address)
 const isLoginOpen = ref<boolean>(false)
 const signin = () => {
   if (!address.value)
     isLoginOpen.value = true
+    console.log("🚀 ~ file: index.vue:8 ~ signin ~ isLoginOpen.value", isLoginOpen.value)
 }
 
 const router = useRouter()
@@ -23,7 +21,7 @@ const go = () => {
     {{name}}
     <button btn @click="signin()">Social Login</button>
   </div>
-  <Login v-if="isLoginOpen" />
+  <Login @close="(isLoginOpen=false)" v-if="isLoginOpen" />
 </template>
 
 <route lang="yaml">
