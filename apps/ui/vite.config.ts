@@ -8,27 +8,58 @@ import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { VitePWA } from 'vite-plugin-pwa'
-import Inspect from 'vite-plugin-inspect'
 import Unocss from 'unocss/vite'
-import VueMacros from 'unplugin-vue-macros/vite'
+
+import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
+import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill'
+import rollupNodePolyFill from 'rollup-plugin-node-polyfills'
 
 export default defineConfig({
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
+      'crypto': 'rollup-plugin-node-polyfills/polyfills/crypto-browserify',
+      'stream': 'rollup-plugin-node-polyfills/polyfills/stream',
+      'assert': 'rollup-plugin-node-polyfills/polyfills/assert',
+      'http': 'rollup-plugin-node-polyfills/polyfills/http',
+      'os': 'rollup-plugin-node-polyfills/polyfills/os',
+      'https': 'rollup-plugin-node-polyfills/polyfills/http',
+      'url': 'rollup-plugin-node-polyfills/polyfills/url',
+      'zlib': 'rollup-plugin-node-polyfills/polyfills/zlib',
+      'path': 'rollup-plugin-node-polyfills/polyfills/path',
     },
   },
-
+  optimizeDeps: {
+    esbuildOptions: {
+      // Node.js global to browser globalThis
+      define: {
+        global: 'globalThis',
+      },
+      // Enable esbuild polyfill plugins
+      plugins: [
+        NodeGlobalsPolyfillPlugin({
+          process: true,
+          buffer: true,
+        }),
+        NodeModulesPolyfillPlugin(),
+      ],
+    },
+  },
+  build: {
+    rollupOptions: {
+      plugins: [
+        // Enable rollup polyfills plugin
+        // used during production bundling
+        rollupNodePolyFill() as unknown as Plugin,
+      ],
+    },
+  },
   plugins: [
     Preview(),
 
-    VueMacros({
-      plugins: {
-        vue: Vue({
-          include: [/\.vue$/, /\.md$/],
-          reactivityTransform: true,
-        }),
-      },
+    Vue({
+      include: [/\.vue$/],
+      reactivityTransform: true,
     }),
 
     // https://github.com/hannoeru/vite-plugin-pages
@@ -47,6 +78,7 @@ export default defineConfig({
         'vue/macros',
         '@vueuse/head',
         '@vueuse/core',
+        'pinia',
       ],
       dts: 'src/auto-imports.d.ts',
       dirs: [
@@ -58,12 +90,12 @@ export default defineConfig({
 
     // https://github.com/antfu/unplugin-vue-components
     Components({
-      directoryAsNamespace: true,
       // allow auto load markdown components under `./src/components/`
-      extensions: ['vue'],
+      extensions: ['vue', 'md'],
       // allow auto import and register components used in markdown
       include: [/\.vue$/, /\.vue\?vue/],
       dts: 'src/components.d.ts',
+      directoryAsNamespace: true,
     }),
 
     // https://github.com/antfu/unocss
@@ -98,10 +130,6 @@ export default defineConfig({
         ],
       },
     }),
-
-    // https://github.com/antfu/vite-plugin-inspect
-    // Visit http://localhost:3333/__inspect/ to see the inspector
-    Inspect(),
   ],
 
   // https://github.com/vitest-dev/vitest

@@ -1,32 +1,37 @@
+
 import { acceptHMRUpdate, defineStore } from 'pinia'
+// import { activeChainId } from '~/utils/functions/chainConfig';
 
 export const useUserStore = defineStore('user', () => {
-  /**
-   * Current name of the user.
-   */
-  const savedName = ref('')
-  const previousNames = ref(new Set<string>())
 
-  const usedNames = computed(() => Array.from(previousNames.value))
-  const otherNames = computed(() => usedNames.value.filter(name => name !== savedName.value))
+  const address = ref<string | undefined>('')
+  const network = ref<any | null>(null)
+  const smartContract = ref<string | undefined>('')
+  const userInfo = ref<any | null>(null)
 
-  /**
-   * Changes the current name of the user and saves the one that was used
-   * before.
-   *
-   * @param name - new name to set
-   */
-  function setNewName(name: string) {
-    if (savedName.value)
-      previousNames.value.add(savedName.value)
-
-    savedName.value = name
+  function setWeb3State(value: any | null) {
+    address.value = value?.address
+    network.value = value?.network
+    smartContract.value = value?.smartContract
+  }
+  function setUserInfo(info: any | null) {
+    userInfo.value = info
+  }
+  function logout() {
+    address.value = ''
+    network.value = null
+    smartContract.value = ''
+      userInfo.value = null
   }
 
   return {
-    setNewName,
-    otherNames,
-    savedName,
+    userInfo,
+    address,
+    network,
+    smartContract,
+    setWeb3State,
+    setUserInfo,
+    logout
   }
 })
 
