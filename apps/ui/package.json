@@ -1,6 +1,6 @@
 {
+  "name": "@web3gram/ui",
   "type": "module",
-  "private": true,
   "packageManager": "pnpm@7.17.1",
   "scripts": {
     "build": "vite-ssg build",
@@ -35,12 +35,12 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.33.0",
     "@iconify-json/carbon": "^1.1.11",
+    "@types/lodash.clonedeep": "^4.5.7",
     "@types/nprogress": "^0.2.0",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vue-macros/volar": "^0.5.4",
     "@vue/test-utils": "^2.2.4",
     "critters": "^0.0.16",
-    "@types/lodash.clonedeep": "^4.5.7",
     "cross-env": "^7.0.3",
     "eslint": "^8.28.0",
     "eslint-plugin-cypress": "^2.12.1",
