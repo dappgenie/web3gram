@@ -31,7 +31,7 @@ const res = useFileSystemAccess({
             <TextArea :value="content.caption" :placeholder="'Type your caption'" />
             <!-- <TextInput v-model="content.caption"/> -->
         </div>
-        <div w-full flex justify-end mt-4 gap-x-4>
+        <div class="buttons-list">
             <Button
                 id="connect-wallet-login-btn"
                 name="connect-wallet-login-btn"
@@ -64,6 +64,9 @@ const res = useFileSystemAccess({
     @apply rounded-full mt-1 w-14 h-14;
 }
 .post {
-    @apply  w-full flex justify-start gap-x-4;
+    @apply w-full flex justify-start gap-x-4;
+}
+.buttons-list {
+    @apply w-full flex justify-end mt-4 gap-x-4;
 }
 </style>

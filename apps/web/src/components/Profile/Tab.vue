@@ -20,7 +20,7 @@ const selectOption = (option: number) => {
                 :class="[selected === 0 ? 'text-violet-500' : 'text-primary']"
                 @click="selectOption(0)"
             >
-                <label class="z-20 flex items-center justify-center">
+                <label class="text">
                     <div class="mr-2" i-mdi:draw-pen />
                     My Arts</label>
             </div>
@@ -29,7 +29,7 @@ const selectOption = (option: number) => {
                 :class="[selected === 1 ? 'text-violet-500' : 'text-primary']"
                 @click="selectOption(1)"
             >
-                <label class="z-20 flex items-center justify-center"
+                <label class="text"
                     ><div mr-2 i-mdi:format-list-bulleted-square />
                     My Collections</label
                 >
@@ -39,7 +39,7 @@ const selectOption = (option: number) => {
                 :class="[selected === 2 ? 'text-violet-500' : 'text-primary']"
                 @click="selectOption(2)"
             >
-                <label z-20 flex items-center justify-center
+                <label class="text"
                     ><div mr-2 i-mdi:account-supervisor />
                     My Friends</label
                 >
@@ -60,10 +60,13 @@ const selectOption = (option: number) => {
 
 <style scoped lang="postcss">
 .tab-box {
-    @apply relative flex w-full items-center justify-center my-8;
+    @apply relative text-black dark:text-white flex w-full items-center justify-center my-8;
 }
 .tabs {
     @apply flex relative bg-[#EAEEF4] dark:bg-[#151515] shadow-lg rounded-lg z-10;
+}
+.text {
+    @apply z-20 flex items-center justify-center;
 }
 
 .tab {
@@ -87,7 +90,7 @@ input[type='radio']:checked + label {
 }
 
 .glider {
-    @apply absolute flex h-10 p-6 w-96 bg-white dark:bg-black z-10 rounded-lg;
+    @apply absolute flex h-10 p-6 w-96 bg-violet-800 z-10 rounded-lg;
     transition: 0.25s ease-out;
 }
 </style>

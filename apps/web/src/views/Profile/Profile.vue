@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import Image from '@/components/Card/Image.vue';
 import Post from '@/components/Profile/Post.vue';
 import Tab from '@/components/Profile/Tab.vue';
 
@@ -40,8 +41,18 @@ import Tab from '@/components/Profile/Tab.vue';
             </div>
         </div>
         <Post />
-        <div w-full>
+        <div class="posts">
             <Tab />
+            <div class="list">
+                <Image/>
+                <Image/>
+                <Image/>
+                <Image/>
+                <Image/>
+                <Image/>
+                <Image/>
+                <Image/>
+            </div>
         </div>
     </div>
 </template>
@@ -68,5 +79,11 @@ import Tab from '@/components/Profile/Tab.vue';
 }
 .profile-header {
     @apply h-36 px-8 py-8 bg-white dark:bg-black text-gray-300 w-full flex justify-end items-center gap-x-12 -mt-28;
+}
+.posts {
+    @apply w-full;
+}
+.list {
+    @apply flex flex-row flex-wrap justify-between;
 }
 </style>
