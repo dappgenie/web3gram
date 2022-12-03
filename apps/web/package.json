@@ -8,8 +8,6 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@biconomy/smart-account": "^0.0.3",
-    "@biconomy/web3-auth": "^0.0.3",
     "@floating-ui/dom": "^1.0.7",
     "@vueuse/core": "^9.6.0",
     "@web3auth/ui": "^3.2.0",
@@ -20,6 +18,7 @@
     "pinia-plugin-persistedstate": "^2.1.1",
     "swiper": "^8.4.5",
     "vue": "^3.2.13",
+    "vue-advanced-chat": "^2.0.6",
     "vue-router": "^4.0.3",
     "web3.storage": "^3.1.0",
     "webpack": "^5.75.0"

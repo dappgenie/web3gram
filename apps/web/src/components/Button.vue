@@ -11,11 +11,7 @@ const props = defineProps<IButtonProps>()
 
 <template>
     <button
-        class="button-style"
-        :class="[
-            color ? `btn-${color}` : 'btn-base',
-            rounded ? `rounded-${rounded}` : 'rounded-none',
-        ]"
+        class="btn flex justify-center items-center text-sm active:scale-105 transition-all bg-secondary hover:bg-sksecondary/50 hover:dark:bg-secondary/80 text-white"
     >
         <div v-if="iconPosition === 'left'" class="mr-2">
             <slot name="icon" />
@@ -28,15 +24,6 @@ const props = defineProps<IButtonProps>()
 </template>
 
 <style scoped lang="css">
-.btn-icon {
-    @apply w-3 h-3;
-}
-.button-style {
-    @apply btn flex justify-center items-center text-sm active:scale-105 transition-all;
-}
-.rounded-full {
-    border-radius: 10em;
-}
 .btn-base {
     @apply bg-black/90 dark:bg-gray-200 hover:bg-[#black]/40 hover:dark:bg-gray-100 text-white dark:text-black;
 }

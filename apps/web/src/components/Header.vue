@@ -29,8 +29,8 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div :class="$style.header">
-        <div :class="$style.navbar">
+    <div class="w-screen z-50 fixed background flex justify-between items-center flex-col">
+        <div class="border-b-1 border-[#E7E7E7] dark:border-primary w-full flex justify-between items-center py-5 px-4 md:px-10 xl:px-12 2xl:px-14">
             <img v-if="isDark" h-8 md:h-11 w-auto src="@/assets/images/logo_dark_alpha.svg" alt="logo" />
             <img v-else h-8 md:h-11 w-auto src="@/assets/images/logo_light_alpha.svg" alt="logo" />
             <div flex md:hidden gap-6 justify-end items-center>
@@ -44,7 +44,7 @@ onMounted(async () => {
                     @click="isOpen = !isOpen"
                 />
             </div>
-            <div :class="$style.menu">
+            <div class="hidden md:flex justify-end items-center text-base font-bold gap-x-12">
                 <div btn i-mdi:home @click="router.push('/newsfeed')" />
                 <div
                     btn
@@ -58,7 +58,6 @@ onMounted(async () => {
                 <Button
                     id="connect-wallet-login-btn"
                     name="connect-wallet-login-btn"
-                    color="blue"
                     rounded="full"
                     w-24
                     @click="signin()"
@@ -74,7 +73,6 @@ onMounted(async () => {
                         <Button
                             id="connect-wallet-btn"
                             name="connect-wallet-btn"
-                            color="blue"
                             rounded="full"
                             w-fit
                         >
@@ -102,7 +100,7 @@ onMounted(async () => {
             </div>
         </div>
         <!-- <Transition name="mobile-nav"> -->
-        <div :class="[$style['mob-nav'], isOpen ? 'py-6 h-auto' : 'py-0 h-0']">
+        <div class="font-bold background block space-y-3 text-center overflow-hidden transition-all" :class="[isOpen ? 'py-6 h-auto' : 'py-0 h-0']">
             <div btn i-mdi:home />
             <div btn i-mdi:account-group />
             <div btn i-mdi:bell />
@@ -110,7 +108,6 @@ onMounted(async () => {
             <Button
                 id="connect-wallet-btn"
                 name="connect-wallet-btn"
-                color="blue"
                 rounded="full"
                 w-24
                 @click="signin()"
@@ -125,19 +122,4 @@ onMounted(async () => {
 </template>
 
 <style module lang="css">
-.header {
-    @apply w-screen z-50 fixed background flex justify-between items-center flex-col;
-}
-
-.navbar {
-    @apply border-b-1 border-[#E7E7E7] dark:border-primary w-full flex justify-between items-center py-5 px-4 md:px-10 xl:px-12 2xl:px-14;
-}
-
-.mob-nav {
-    @apply font-bold background block space-y-3 text-center transition-all overflow-hidden transition-all;
-}
-
-.menu {
-    @apply hidden md:flex justify-end items-center text-base font-bold gap-x-12;
-}
 </style>

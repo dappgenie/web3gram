@@ -33,7 +33,6 @@ const res = useFileSystemAccess({
             <Button
                 id="connect-wallet-login-btn"
                 name="connect-wallet-login-btn"
-                color="blue"
                 rounded="full"
                 w-36
                 @click="res.create()"
@@ -43,7 +42,6 @@ const res = useFileSystemAccess({
             <Button
                 id="connect-wallet-login-btn"
                 name="connect-wallet-login-btn"
-                color="blue"
                 rounded="full"
                 w-36
             >

@@ -29,12 +29,12 @@ onClickOutside(target, (event) => {
             <div
                 v-if="show"
                 :style="{ zIndex: zIndex ?? 100 }"
-                class="modal"
+                class="fixed top-0 left-0 w-screen h-screen flex overflow-y-auto bg-gray-100 bg-opacity-70 dark:bg-gray-900 dark:bg-opacity-70"
                 @click="emit('backdrop')"
             >
                 <div
                     ref="target"
-                    class="modal-content"
+                    class="m-auto background-secondary relative rounded-lg overflow-hidden overflow-y-auto shadow-lg"
                     @click="$event.stopPropagation()"
                 >
                     <div
@@ -59,7 +59,7 @@ onClickOutside(target, (event) => {
                         </div>
                         <button
                             v-if="!hideClose"
-                            class="close-btn"
+                            class="absolute top-0 right-0 z-40 m-2 w-8 h-8 opacity-20 hover:opacity-100 transition duration-300 ease-in-out fill-gray-800 dark:fill-gray-100"
                             @click.stop="emit('close')"
                         >
                             <div i-mdi:close />
@@ -75,20 +75,6 @@ onClickOutside(target, (event) => {
 </template>
 
 <style lang="css" scoped>
-.modal {
-    @apply fixed top-0 left-0 w-screen h-screen flex overflow-y-auto;
-    @apply bg-gray-100 bg-opacity-70 dark:bg-gray-900 dark:bg-opacity-70;
-}
-
-.modal-content {
-    @apply m-auto background-secondary relative rounded-lg overflow-hidden overflow-y-auto shadow-lg;
-    /* @apply min-w-[80%] md:min-w-[70%] lg:min-w-[40%]  */
-}
-.close-btn {
-    @apply absolute top-0 right-0 z-40 m-2 w-8 h-8 opacity-20 hover:opacity-100;
-    @apply transition duration-300 ease-in-out;
-    @apply fill-gray-800 dark:fill-gray-100;
-}
 .modal-enter-active {
     animation: fade-in 0.3s;
 }
