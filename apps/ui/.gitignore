@@ -6,5 +6,5 @@ dist
 dist-ssr
 node_modules
 .idea/
+.env
 *.log
-cypress/downloads

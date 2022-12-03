@@ -2,7 +2,7 @@
 interface IButtonProps {
   id?: string
   name?: string
-  color?: 'base' | 'gradient' | 'primary' | 'warning' | 'success'
+  color?: 'base' | 'gradient' | 'primary' | 'warning' | 'success' | 'blue'
   iconPosition?: 'left' | 'right'
   rounded?: 'none' | 'sm' | 'lg' | 'xl' | '2xl' | 'full'
 }
@@ -35,6 +35,9 @@ defineProps<IButtonProps>()
     }
     .btn-base {
         @apply bg-black/90 dark:bg-gray-200 hover:bg-[#black]/40 hover:dark:bg-gray-100 text-white dark:text-black;
+    }
+    .btn-blue {
+        @apply bg-sky dark:bg-sky-800 hover:bg-sky/40 hover:dark:bg-sky-100 text-white;
     }
     .btn-primary {
         @apply bg-primary dark:bg-secondary hover:bg-primary/80 dark:hover:bg-secondary/80 text-white;

@@ -1,9 +1,16 @@
 <template>
-  <main class="px-4 py-10 text-center text-gray-700 dark:text-gray-200">
-    <RouterView />
-    <TheFooter />
-    <div class="mt-5 mx-auto text-center opacity-75 dark:opacity-50 text-sm">
-      [Home Layout]
+  <main class="font-sans grid background">
+    <Header />
+    <div class="page">
+      <RouterView />
+      <Toasts />
     </div>
+    <Footer />
   </main>
 </template>
+
+<style scoped lang="css">
+.page {
+  @apply relative pb-12 px-4 md:px-10 xl:px-12 2xl:px-14 mt-18 lg:mt-20 background w-screen;
+}
+</style>

@@ -3,7 +3,7 @@
 
 <template>
   <div>
-    Not-found
+   Not found
   </div>
 </template>
 

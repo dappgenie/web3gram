@@ -1,25 +1,23 @@
 import { ethers } from 'ethers'
 import { Web3AuthCore } from '@web3auth/core'
-import SmartAccount from '@biconomy/smart-account'
+import SmartAccount from "@biconomy/smart-account";
 import { NetworkSwitch } from '@web3auth/ui'
-import type {
-  SafeEventEmitterProvider,
-  UserInfo,
-} from '@web3auth/base'
 import {
-  CHAIN_NAMESPACES,
   WALLET_ADAPTERS,
+  CHAIN_NAMESPACES,
+  SafeEventEmitterProvider,
+  UserInfo
 } from '@web3auth/base'
 import { OpenloginAdapter } from '@web3auth/openlogin-adapter'
 import { MetamaskAdapter } from '@web3auth/metamask-adapter'
 import { WalletConnectV1Adapter } from '@web3auth/wallet-connect-v1-adapter'
 import QRCodeModal from '@walletconnect/qrcode-modal'
-import type { WhiteListSignatureResponse } from '@biconomy/node-client'
-import NodeClient from '@biconomy/node-client'
+import NodeClient, { WhiteListSignatureResponse } from '@biconomy/node-client'
 import SocialLogin from '@biconomy/web3-auth'
-import { ChainId, supportedChains } from '~/utils/factories/chainConfig'
+import { ChainId, supportedChains } from '~/utils/factories/chainConfig';
+const { setUserInfo, setWeb3State } = useUserStore()
 
-interface DefaultSocialLoginConfig {
+type DefaultSocialLoginConfig = {
   backendUrl: string
 }
 
@@ -40,23 +38,23 @@ export class useSocialLogin {
     this.isInit = false
     this.web3auth = null
     this.provider = null
-    this.clientId
-      = 'BEQgHQ6oRgaJXc3uMnGIr-AY-FLTwRinuq8xfgnInrnDrQZYXxDO0e53osvXzBXC1dcUTyD2Itf-zN1VEB8xZlo'
+    this.clientId =
+      'BEQgHQ6oRgaJXc3uMnGIr-AY-FLTwRinuq8xfgnInrnDrQZYXxDO0e53osvXzBXC1dcUTyD2Itf-zN1VEB8xZlo'
     this.backendUrl = backendUrl
     this.nodeClient = new NodeClient({ txServiceUrl: this.backendUrl })
   }
 
   async whitelistUrl(origin: string): Promise<string> {
-    /* const appKeyBuf = Buffer.from(this.apiKey.padStart(64, '0'), 'hex')
+    /*const appKeyBuf = Buffer.from(this.apiKey.padStart(64, '0'), 'hex')
     if (base64url.encode(getPublic(appKeyBuf)) !== this.clientId) throw new Error('appKey mismatch')
     const sig = await sign(
       appKeyBuf,
       Buffer.from(keccak('keccak256').update(origin).digest('hex'), 'hex')
     )
-    return base64url.encode(sig) */
+    return base64url.encode(sig)*/
 
     const whiteListUrlResponse: WhiteListSignatureResponse = await this.nodeClient.whitelistUrl(
-      origin,
+      origin
     )
     console.log(whiteListUrlResponse.data)
     return whiteListUrlResponse.data
@@ -65,7 +63,7 @@ export class useSocialLogin {
   async init(
     chainId: string,
     whitelistUrls?: { [P in string]: string },
-    network: 'mainnet' | 'testnet' = 'testnet',
+    network: 'mainnet' | 'testnet' = 'testnet'
   ) {
     try {
       console.log('SocialLogin init')
@@ -73,34 +71,34 @@ export class useSocialLogin {
         clientId: this.clientId,
         chainConfig: {
           chainNamespace: CHAIN_NAMESPACES.EIP155,
-          chainId,
-        },
+          chainId: chainId
+        }
       })
 
       const openloginAdapter = new OpenloginAdapter({
         adapterSettings: {
           clientId: this.clientId,
-          network,
+          network: network,
           uxMode: 'redirect',
           whiteLabel: {
             name: 'Biconomy SDK',
             logoLight: 'https://s2.coinmarketcap.com/static/img/coins/64x64/9543.png',
             logoDark: 'https://s2.coinmarketcap.com/static/img/coins/64x64/9543.png',
             defaultLanguage: 'en',
-            dark: true,
+            dark: true
           },
-          originData: whitelistUrls,
-        },
+          originData: whitelistUrls
+        }
       })
       const metamaskAdapter = new MetamaskAdapter({
-        clientId: this.clientId,
+        clientId: this.clientId
       })
       const networkUi = new NetworkSwitch()
       const wcAdapter = new WalletConnectV1Adapter({
         adapterSettings: {
           qrcodeModal: QRCodeModal,
-          networkSwitchModal: networkUi,
-        },
+          networkSwitchModal: networkUi
+        }
       })
 
       web3AuthCore.configureAdapter(openloginAdapter)
@@ -109,45 +107,45 @@ export class useSocialLogin {
       await web3AuthCore.init()
       this.web3auth = web3AuthCore
       if (web3AuthCore && web3AuthCore.provider) {
-        console.log('🚀 ~ file: socialLogin.ts ~ line 111 ~ useSocialLogin ~ web3AuthCore.provider', web3AuthCore.provider)
+        console.log("🚀 ~ file: socialLogin.ts ~ line 111 ~ useSocialLogin ~ web3AuthCore.provider", web3AuthCore.provider)
         this.provider = web3AuthCore.provider
-      }
-      const web3Provider = new ethers.providers.Web3Provider(web3AuthCore.provider)
-      const signer = web3Provider.getSigner()
-      const address = await signer.getAddress()
-      const chain = await web3Provider.getNetwork()
-      const wallet = new SmartAccount(web3Provider, {
-        activeNetworkId: chainId,
-        supportedNetworksIds: supportedChains,
-        networkConfig: [
-          {
-            chainId: ChainId.POLYGON_MUMBAI,
-            dappAPIKey: '59fRCMXvk.8a1652f0-b522-4ea7-b296-98628499aee3',
-          },
-          {
-            chainId: ChainId.POLYGON_MAINNET,
-            // dappAPIKey: todo
-          },
-        ],
-      })
-
-      // Wallet initialization to fetch wallet info
-      const smartAccount = await wallet.init()
-      const { data } = await smartAccount.getSmartAccountsByOwner({
-        chainId: Number(chainId),
-        owner: address,
-      })
-      const web3State = {
-        address,
-        network: chain,
-        smartContract: data[0].smartAccountAddress,
+        const web3Provider = new ethers.providers.Web3Provider(web3AuthCore.provider);
+        const signer = web3Provider.getSigner();
+        const address = await signer.getAddress();
+        const chain = await web3Provider.getNetwork();
+        const wallet = new SmartAccount(web3Provider, {
+          activeNetworkId: chainId,
+          supportedNetworksIds: supportedChains,
+          networkConfig: [
+            {
+              chainId: ChainId.POLYGON_MUMBAI,
+              dappAPIKey: "59fRCMXvk.8a1652f0-b522-4ea7-b296-98628499aee3",
+            },
+            {
+              chainId: ChainId.POLYGON_MAINNET,
+              // dappAPIKey: todo
+            },
+          ],
+        });
+        console.log("wallet", wallet);
+  
+        // Wallet initialization to fetch wallet info
+        const smartAccount = await wallet.init();
+        console.info("smartAccount", smartAccount);
+        const { data } = await smartAccount.getSmartAccountsByOwner({
+          chainId: Number(chainId),
+          owner: address,
+        });
+        console.info("getSmartAccountsByOwner", data[0]);
+        setWeb3State({
+          address,
+          network: chain,
+          smartContract: data[0].smartAccountAddress
+        })
       }
       this.isInit = true
-      return web3State
-    }
-    catch (error) {
+    } catch (error) {
       console.error(error)
-      return error
     }
   }
 
@@ -190,26 +188,33 @@ export class useSocialLogin {
 
   async getUserInfo() {
     if (this.web3auth) {
-      console.log('🚀 ~🚀 ~🚀 ~🚀 ~ file: socialLogin.ts ~ line 192 ~ useSocialLogin ~ getUserInfo ~ this.web3auth', this.web3auth)
+      console.log("🚀 ~🚀 ~🚀 ~🚀 ~ file: socialLogin.ts ~ line 192 ~ useSocialLogin ~ getUserInfo ~ this.web3auth", this.web3auth)
       const userInfo = await this.web3auth.getUserInfo()
+      // console.log("🚀 ~ file: socialLogin.ts ~ line 176 ~ useSocialLogin ~ getUserInfo ~ this.web3auth", this.web3auth)
       this.userInfo = userInfo
+      setUserInfo(userInfo)
+  // setWeb3State({
+  //   signer: signer,
+  //   address: gotAccount,
+  //   network: network
+  // })
       return userInfo
     }
-    console.log('🚀 ~ file: socialLogin.ts ~ line 192 ~ useSocialLogin ~ getUserInfo ~ this.web3aut', this.web3auth)
+    console.log("🚀 ~ file: socialLogin.ts ~ line 192 ~ useSocialLogin ~ getUserInfo ~ this.web3aut", this.web3auth)
     return null
   }
 
   async socialLogin(loginProvider: string) {
-    console.log('🚀 ~ 🚀 ~ 🚀 ~ 🚀 ~  ~ useSocialLogin ~ socialLogin ~ loginProvider', loginProvider)
+    console.log("🚀 ~ 🚀 ~ 🚀 ~ 🚀 ~  ~ useSocialLogin ~ socialLogin ~ loginProvider", loginProvider)
     if (!this.web3auth) {
       console.log('web3auth not initialized yet')
       return
     }
     try {
       const web3authProvider = await this.web3auth.connectTo(WALLET_ADAPTERS.OPENLOGIN, {
-        loginProvider,
+        loginProvider: loginProvider
       })
-
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const web3Provider = new ethers.providers.Web3Provider(web3authProvider!)
       const signer = web3Provider.getSigner()
       const gotAccount = await signer.getAddress()
@@ -217,14 +222,13 @@ export class useSocialLogin {
       console.info(`EOA Address ${gotAccount}\nNetwork: ${network}`)
       this.provider = web3authProvider
       return web3authProvider
-    }
-    catch (error) {
+    } catch (error) {
       console.error(error)
       throw error
     }
   }
 
-  async emailLogin(email: string) {
+ async emailLogin (email: string) {
     if (!this.web3auth) {
       console.log('web3auth not initialized yet')
       return
@@ -233,12 +237,12 @@ export class useSocialLogin {
       // console.log('signing in with email', email)
       const web3authProvider = await this.web3auth.connectTo(WALLET_ADAPTERS.OPENLOGIN, {
         loginProvider: 'email_passwordless',
-        login_hint: email,
+        login_hint: email
         // extraLoginOptions: {
         //   login_hint: email
         // }
       })
-
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const web3Provider = new ethers.providers.Web3Provider(web3authProvider!)
       const signer = web3Provider.getSigner()
       const gotAccount = await signer.getAddress()
@@ -246,8 +250,7 @@ export class useSocialLogin {
       console.info(`EOA Address ${gotAccount}\nNetwork: ${network}`)
       this.provider = web3authProvider
       return web3authProvider
-    }
-    catch (error) {
+    } catch (error) {
       console.error(error)
       throw error
     }
@@ -267,8 +270,7 @@ export class useSocialLogin {
       console.info(`EOA Address ${gotAccount}\nNetwork: ${network}`)
       this.provider = web3authProvider
       return web3authProvider
-    }
-    catch (error) {
+    } catch (error) {
       console.error(error)
       throw error
     }
@@ -288,8 +290,7 @@ export class useSocialLogin {
       console.info(`EOA Address ${gotAccount}\nNetwork: ${network}`)
       this.provider = web3authProvider
       return web3authProvider
-    }
-    catch (error) {
+    } catch (error) {
       console.error(error)
       throw error
     }
@@ -307,7 +308,7 @@ export class useSocialLogin {
 }
 
 const defaultSocialLoginConfig: DefaultSocialLoginConfig = {
-  backendUrl: 'https://sdk-backend.prod.biconomy.io/v1',
+  backendUrl: 'https://sdk-backend.prod.biconomy.io/v1'
 }
 
 export default SocialLogin
@@ -316,14 +317,14 @@ let initializedSocialLogin: SocialLogin | null = null
 const getSocialLoginSDK = async (
   chainId: string,
   whitelistUrls?: { [P in string]: string },
-  network: 'mainnet' | 'testnet' = 'testnet',
+  network: 'mainnet' | 'testnet' = 'testnet'
 ) => {
-  if (initializedSocialLogin)
+  if (initializedSocialLogin) {
     return initializedSocialLogin
-
+  }
   await socialLoginSDK.init(chainId, whitelistUrls, network)
   initializedSocialLogin = socialLoginSDK
-  console.log('🚀 ~ file: socialLogin.ts ~ line 312 ~ initializedSocialLogin', initializedSocialLogin)
+  console.log("🚀 ~ file: socialLogin.ts ~ line 312 ~ initializedSocialLogin", initializedSocialLogin)
   return socialLoginSDK
 }
 

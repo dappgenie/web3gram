@@ -17,7 +17,6 @@ import rollupNodePolyFill from 'rollup-plugin-node-polyfills'
 export default defineConfig({
   resolve: {
     alias: {
-      'buffer': path.resolve(__dirname, 'node_modules/buffer'),
       '~/': `${path.resolve(__dirname, 'src')}/`,
       'crypto': 'rollup-plugin-node-polyfills/polyfills/crypto-browserify',
       'stream': 'rollup-plugin-node-polyfills/polyfills/stream',
@@ -38,10 +37,9 @@ export default defineConfig({
       },
       // Enable esbuild polyfill plugins
       plugins: [
-
         NodeGlobalsPolyfillPlugin({
           process: true,
-          buffer: false,
+          buffer: true,
         }),
         NodeModulesPolyfillPlugin(),
       ],

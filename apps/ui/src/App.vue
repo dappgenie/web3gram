@@ -3,9 +3,9 @@
 // you can use this to manipulate the document head in any components,
 // they will be rendered correctly in the html results with vite-ssg
 useHead({
-  title: 'Vitesse',
+  title: 'Buk Trips',
   meta: [
-    { name: 'description', content: 'Opinionated Vite Starter Template' },
+    { name: 'description', content: 'Buk Trips' },
     {
       name: 'theme-color',
       content: computed(() => isDark.value ? '#00aba9' : '#ffffff'),
@@ -15,12 +15,27 @@ useHead({
     {
       rel: 'icon',
       type: 'image/svg+xml',
-      href: computed(() => preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg'),
+      href: computed(() => '/favicon.svg'),
     },
   ],
 })
 </script>
 
 <template>
-  <RouterView />
+  <RouterView v-slot="{ Component }">
+    <template v-if="Component">
+      <KeepAlive>
+        <Suspense>
+          <!-- main content -->
+          <component :is="Component" />
+
+          <!-- loading state -->
+          <template #fallback>
+            <LoaderItem />
+          </template>
+        </Suspense>
+      </KeepAlive>
+    </template>
+  </RouterView>
 </template>
+
