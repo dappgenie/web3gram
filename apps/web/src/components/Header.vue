@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { isDark } from '@/composables/dark';
+import { BiconomyService } from '@/sevices/biconomy';
 import { ethers } from 'ethers'
 // import { activeChainId } from '~/utils/factories/chainConfig'
 import { onMounted, ref } from 'vue';
@@ -7,18 +8,24 @@ import { useRouter } from 'vue-router';
 import Button from './Button.vue';
 import DarkToggle from './DarkToggle.vue';
 import Dropdown from './Dropdown.vue';
+import '../assets/css/biconomy.css'
 // const socialLogin = new useSocialLogin()
 // const { logout } = useUserStore()
 // const { isLoader } = storeToRefs(useLoaderStore())
 // const { address } = storeToRefs(useUserStore())
+import {useUserStore} from "@/store/user";
+import { storeToRefs } from "pinia";
+const {address } = storeToRefs(useUserStore())
 const isOpen = ref<boolean>(false)
 const isLoginOpen = ref<boolean>(false)
 const router = useRouter()
+const biconomyService = new BiconomyService();
 const signin = () => {
-    // if (!address.value) 
-    isLoginOpen.value = true
+    biconomyService.showModel()
 }
+
 const signout = () => {
+    biconomyService.signOut()
     // socialLogin.disconnect()
     // logout()
 }
@@ -56,6 +63,7 @@ onMounted(async () => {
 
                 <DarkToggle />
                 <Button
+                v-if="!address"
                     id="connect-wallet-login-btn"
                     name="connect-wallet-login-btn"
                     color="blue"
@@ -64,6 +72,18 @@ onMounted(async () => {
                     @click="signin()"
                 >
                     <template #content> Login </template>
+                </Button>
+                <div v-if="address"> {{address}}</div>
+                <Button
+                v-if="address"
+                    id="connect-wallet-login-btn"
+                    name="connect-wallet-login-btn"
+                    color="blue"
+                    rounded="full"
+                    w-24
+                    @click="signout()"
+                >
+                    <template #content> LogOut</template>
                 </Button>
                 <Dropdown
                     id="nav-dropdown"

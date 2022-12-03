@@ -1,7 +1,12 @@
 import { defineStore, acceptHMRUpdate } from "pinia";
+import { ref } from "vue";
+export const useUserStore = defineStore("user", ()=> {
+  const address = ref('')
+  function setAddress(newData: string) {
+    address.value = newData;
+  }
 
-const useUserStore = defineStore("user", {
-  // options...
+  return { address,setAddress }
 });
 
 if (import.meta.webpackHot) {
