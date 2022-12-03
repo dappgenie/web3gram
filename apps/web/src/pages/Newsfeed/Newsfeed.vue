@@ -3,12 +3,12 @@ const name = 'Page'
 </script>
 
 <template>
-  <p class="border-l">Hello World  {{name}}</p>
+    <p class="border-l">Hello World {{ name }}</p>
 </template>
 
 <style scoped lang="css"></style>
 
 <route lang="yaml">
-  meta:
+meta:
     layout: home
-  </route>
+</route>

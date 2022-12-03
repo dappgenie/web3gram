@@ -1,15 +1,16 @@
 <script lang="ts" setup>
-import { defineAsyncComponent } from '@vue/runtime-core';
+import { defineAsyncComponent } from '@vue/runtime-core'
 
-const asyncMain = defineAsyncComponent(() => import('~/components/Home/Main.vue'))
+const asyncMain = defineAsyncComponent(
+    () => import('~/components/Home/Main.vue')
+)
 </script>
 
 <template>
-  <asyncMain />
+    <asyncMain />
 </template>
 
 <route lang="yaml">
 meta:
-  layout: home
+    layout: home
 </route>
-

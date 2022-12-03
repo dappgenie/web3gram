@@ -1,11 +1,11 @@
-<script lang="ts" setup>
-
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  <div h-screen block>
-    <h2 class=" m-auto  mt-32 text-[10rem] font-bold text-center">Web3gram</h2>
-  </div>
+    <div h-screen block>
+        <h2 class="m-auto mt-32 text-[10rem] font-bold text-center">
+            Web3gram
+        </h2>
+    </div>
 </template>
 
 <style scoped lang="css">

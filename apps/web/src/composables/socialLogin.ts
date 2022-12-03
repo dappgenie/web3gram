@@ -128,7 +128,7 @@
 //           ],
 //         });
 //         console.log("wallet", wallet);
-  
+
 //         // Wallet initialization to fetch wallet info
 //         const smartAccount = await wallet.init();
 //         console.info("smartAccount", smartAccount);

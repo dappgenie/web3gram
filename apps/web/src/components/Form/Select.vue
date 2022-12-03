@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { HTMLAttributes } from 'vue'
+import { HTMLAttributes, ref } from 'vue'
 import { computed } from 'vue';
 
 interface ISelectProps {
