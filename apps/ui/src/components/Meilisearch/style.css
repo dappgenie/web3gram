@@ -1,0 +1,4 @@
+
+.ais-SearchBox-input {
+  @apply outline-none border-none w-[90%];
+}
