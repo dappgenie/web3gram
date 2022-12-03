@@ -49,9 +49,9 @@ module.exports = async ({ deployments }) => {
   console.log("Wallet f4Address: ", f4Address)
 
 
-  await deploy("EIP2771", {
+  await deploy("Web3Gram", {
     from: deployer.address,
-    args: [],
+    args: [process.env.BICONOMY_TRUST_FORWARDER],
     maxPriorityFeePerGas: priorityFee,
     log: true,
   });
@@ -59,4 +59,4 @@ module.exports = async ({ deployments }) => {
 };
 
 
-module.exports.tags = ["EIP2771"];
+module.exports.tags = ["Web3Gram"];
