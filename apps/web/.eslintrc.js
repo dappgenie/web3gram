@@ -11,6 +11,10 @@ module.exports = {
         // 'plugin:prettier/recommended',
     ],
     parser: 'vue-eslint-parser',
+    "parserOptions": {
+        "sourceType": "module",
+        "allowImportExportEverywhere": true
+      },
     rules: {
         // semi: ["error", "never"],
         // quotes: ["error", "single"],
