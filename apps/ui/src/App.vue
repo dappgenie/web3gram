@@ -1,31 +1,20 @@
-<script setup lang="ts">
-// https://github.com/vueuse/head
-// you can use this to manipulate the document head in any components,
-// they will be rendered correctly in the html results with vite-ssg
-useHead({
-  title: 'Vitesse',
-  meta: [
-    { name: 'description', content: 'Opinionated Vite Starter Template' },
-    {
-      name: 'theme-color',
-      // content: computed(() => isDark.value ? '#00aba9' : '#ffffff'),
-    },
-  ],
-  link: [
-    {
-      rel: 'icon',
-      type: 'image/svg+xml',
-      href: computed(() => '/favicon.svg'),
-    },
-  ],
-})
+<template>
+  <router-view/>
+</template>
+<script>
+export default {
+  name: 'App',
+  mounted () {
+  }
+}
 </script>
 
-<template>
-  <RouterView />
-</template>
-
-<style scoped lang="scss">
-@import "~/assets/scss/socialv.scss";
-@import "~/assets/scss/customizer.scss";
+<style lang="scss">
+  @import "./assets/scss/socialv.scss";
+  @import "./assets/scss/customizer.scss";
+  @import url("./plugins/Leaflet/leaflet.css");
+  @import url("./plugins/fullcalendar/core/main.css");
+  @import url("./plugins/fullcalendar/daygrid/main.css");
+  @import url("./plugins/fullcalendar/timegrid/main.css");
+  @import url("./plugins/fullcalendar/list/main.css");
 </style>
