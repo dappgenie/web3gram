@@ -267,4 +267,4 @@ const handleUpdate = (value: Date[]) => {
     </div>
 </template>
 
-<style lang="css" scoped></style>
+<style lang="postcss" scoped></style>

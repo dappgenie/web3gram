@@ -34,7 +34,7 @@ onClickOutside(target, (event) => {
             >
                 <div
                     ref="target"
-                    class="m-auto background-secondary relative rounded-lg overflow-hidden overflow-y-auto shadow-lg"
+                    class="m-auto bg-white dark:bg-black relative rounded-lg overflow-hidden overflow-y-auto shadow-lg"
                     @click="$event.stopPropagation()"
                 >
                     <div
@@ -74,7 +74,7 @@ onClickOutside(target, (event) => {
     </Teleport>
 </template>
 
-<style lang="css" scoped>
+<style lang="postcss" scoped>
 .modal-enter-active {
     animation: fade-in 0.3s;
 }

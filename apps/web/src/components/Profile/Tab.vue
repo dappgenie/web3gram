@@ -17,27 +17,26 @@ const selectOption = (option: number) => {
         <div class="tabs">
             <div
                 class="tab"
-                :class="[selected === 0 ? 'text-secondary' : 'text-primary']"
+                :class="[selected === 0 ? 'text-violet-500' : 'text-primary']"
                 @click="selectOption(0)"
             >
-                <label z-20 flex items-center justify-center
-                    ><div mr-2 i-mdi:draw-pen />
-                    My Arts</label
-                >
+                <label class="z-20 flex items-center justify-center">
+                    <div class="mr-2" i-mdi:draw-pen />
+                    My Arts</label>
             </div>
             <div
                 class="tab"
-                :class="[selected === 1 ? 'text-secondary' : 'text-primary']"
+                :class="[selected === 1 ? 'text-violet-500' : 'text-primary']"
                 @click="selectOption(1)"
             >
-                <label z-20 flex items-center justify-center
+                <label class="z-20 flex items-center justify-center"
                     ><div mr-2 i-mdi:format-list-bulleted-square />
                     My Collections</label
                 >
             </div>
             <div
                 class="tab"
-                :class="[selected === 2 ? 'text-secondary' : 'text-primary']"
+                :class="[selected === 2 ? 'text-violet-500' : 'text-primary']"
                 @click="selectOption(2)"
             >
                 <label z-20 flex items-center justify-center
@@ -59,7 +58,7 @@ const selectOption = (option: number) => {
     </div>
 </template>
 
-<style scoped lang="css">
+<style scoped lang="postcss">
 .tab-box {
     @apply relative flex w-full items-center justify-center my-8;
 }
@@ -73,7 +72,7 @@ const selectOption = (option: number) => {
 }
 
 input[type='radio']:checked + label {
-    @apply text-secondary;
+    @apply text-violet-500;
 }
 
 .glider1 {

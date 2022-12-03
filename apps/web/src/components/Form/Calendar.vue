@@ -158,9 +158,9 @@ const getDayClasses = (day: IDay) => {
         </div>
     </div>
 </template>
-<style lang="css" scoped>
+<style lang="postcss" scoped>
 .calendar-container {
-    @apply background space-y-3 p-2 lg:p-4 rounded-lg shadow-lg flex flex-col;
+    @apply bg-gray-200 dark:bg-gray-900 space-y-3 p-2 lg:p-4 rounded-lg shadow-lg flex flex-col;
 }
 
 .calendar {
@@ -168,7 +168,7 @@ const getDayClasses = (day: IDay) => {
 }
 
 .calendar .calendar-month {
-    @apply rounded-lg background-secondary p-2 md:p-4;
+    @apply rounded-lg bg-white dark:bg-black p-2 md:p-4;
 }
 
 .calendar-header {
@@ -233,15 +233,15 @@ const getDayClasses = (day: IDay) => {
 }
 
 .start-of-range .calendar-day-text {
-    @apply bg-secondary;
+    @apply bg-violet-800;
 }
 
 .end-of-range .calendar-day-text {
-    @apply bg-secondary;
+    @apply bg-violet-800;
 }
 
 .selected .calendar-day-text {
-    @apply bg-secondary text-color-primary;
+    @apply bg-violet-800 text-color-primary;
 }
 
 .in-range:not(.start-of-range)::before {

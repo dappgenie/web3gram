@@ -79,7 +79,7 @@ onMounted(() => {
     </div>
 </template>
 
-<style scoped lang="css">
+<style scoped lang="postcss">
 .star-rating {
     @apply flex justify-start items-start;
 }

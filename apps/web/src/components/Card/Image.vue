@@ -41,4 +41,4 @@ const isHovered = useElementHover(refEl)
   </Custom>
 </template>
 
-<style scoped lang="css"></style>
+<style scoped lang="postcss"></style>

@@ -290,7 +290,7 @@ const shortHands = [
         </div>
     </div>
 </template>
-<style lang="css" scoped>
+<style lang="postcss" scoped>
 .calendar-container {
     @apply bg-gray-100 dark:bg-gray-700 space-y-3 p-4 rounded-lg flex flex-col;
 }

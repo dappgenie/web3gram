@@ -11,7 +11,7 @@ const props = defineProps<IButtonProps>()
 
 <template>
     <button
-        class="btn flex justify-center items-center text-sm active:scale-105 transition-all bg-secondary hover:bg-sksecondary/50 hover:dark:bg-secondary/80 text-white"
+        class="button-style"
     >
         <div v-if="iconPosition === 'left'" class="mr-2">
             <slot name="icon" />
@@ -23,15 +23,18 @@ const props = defineProps<IButtonProps>()
     </button>
 </template>
 
-<style scoped lang="css">
+<style scoped lang="postcss">
+.button-style {
+    @apply px-4 py-2.5 rounded-lg cursor-pointer disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50 flex justify-center items-center text-sm active:scale-105 transition-all bg-violet-800 hover:bg-violet-800/50 hover:dark:bg-violet-800/80 text-white;
+}
 .btn-base {
-    @apply bg-black/90 dark:bg-gray-200 hover:bg-[#black]/40 hover:dark:bg-gray-100 text-white dark:text-black;
+    @apply bg-black/90 dark:bg-gray-200 hover:bg-black/40 hover:dark:bg-gray-100 text-white dark:text-black;
 }
 .btn-blue {
-    @apply bg-secondary hover:bg-sksecondary/50 hover:dark:bg-secondary/80 text-white;
+    @apply bg-violet-800 hover:bg-violet-800/50 hover:dark:bg-violet-800/80 text-white;
 }
 .btn-primary {
-    @apply bg-primary dark:bg-secondary hover:bg-primary/80 dark:hover:bg-secondary/80 text-white;
+    @apply bg-gray-400 dark:bg-violet-800 hover:bg-gray-400/80 dark:hover:bg-violet-800/80 text-white;
 }
 .btn-warning {
     @apply bg-red-700 dark:bg-red-900 hover:bg-red-600 dark:hover:bg-red-800 text-white;

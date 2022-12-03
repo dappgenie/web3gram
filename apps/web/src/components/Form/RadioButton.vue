@@ -32,7 +32,7 @@ const isChecked = computed(() => {
     </label>
 </template>
 
-<style scoped lang="css">
+<style scoped lang="postcss">
 /* Customize the label (the wrapper) */
 .wrapper {
     @apply block relative cursor-pointer pl-7;
@@ -53,17 +53,17 @@ const isChecked = computed(() => {
 
 /* Create a custom radio button */
 .checkmark {
-    @apply w-4 h-4 absolute top-0 left-0 rounded-full background-secondary border border-color;
+    @apply w-4 h-4 absolute top-0 left-0 rounded-full bg-white dark:bg-black border border-color;
     /* height: 21px;
   width: 21px; */
 }
 
-/* On mouse-over, add a grey background color */
+/* On mouse-over, add a grey bg-gray-200 dark:bg-gray-900 color */
 .wrapper:hover input ~ .checkmark {
     @apply bg-gray-200 dark:bg-gray-800;
 }
 
-/* When the radio button is checked, add a blue background */
+/* When the radio button is checked, add a blue bg-gray-200 dark:bg-gray-900 */
 /* .wrapper input:checked ~ .checkmark {
   background-color: #1CD4A7;
 } */
@@ -80,7 +80,7 @@ const isChecked = computed(() => {
 
 /* Style the indicator (dot/circle) */
 .wrapper .checkmark:after {
-    @apply bg-primary dark:bg-white w-1.5 h-1.5 rounded-full top-1 left-1;
+    @apply bg-gray-400 dark:bg-white w-1.5 h-1.5 rounded-full top-1 left-1;
     /* top: 3px;
   left: 5px; */
 }

@@ -48,7 +48,7 @@ defineExpose({ input })
 
 <style scoped>
 .input {
-    @apply w-full p-2 h-16 text-sm rounded-sm background-secondary outline-none;
+    @apply w-full p-2 h-16 text-sm rounded-sm bg-white dark:bg-black outline-none;
 }
 input[type='time']::-webkit-calendar-picker-indicator {
     display: none;

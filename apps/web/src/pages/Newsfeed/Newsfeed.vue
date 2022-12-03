@@ -6,7 +6,7 @@ const name = 'Page'
     <p class="border-l">Hello World {{ name }}</p>
 </template>
 
-<style scoped lang="css"></style>
+<style scoped lang="postcss"></style>
 
 <route lang="yaml">
 meta:

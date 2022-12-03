@@ -12,8 +12,8 @@ import Header from '@/components/Header.vue';
     </main>
 </template>
 
-<style scoped lang="css">
+<style scoped lang="postcss">
 .page {
-    @apply relative pb-12 px-4 md: px-10 xl:px-12 2xl:px-14 mt-18 lg:mt-20 background w-screen;
+    @apply relative pb-12 px-4 md:px-10 xl:px-12 2xl:px-14 mt-16 lg:mt-20 bg-gray-200 dark:bg-gray-900 w-screen;
 }
 </style>

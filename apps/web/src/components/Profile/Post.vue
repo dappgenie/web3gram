@@ -23,7 +23,7 @@ const res = useFileSystemAccess({
 </script>
 
 <template>
-    <div background-secondary mt-4 p-4>
+    <div bg-white dark:bg-black mt-4 p-4>
         <h2 py-2>Create Post</h2>
         <div w-full flex justify-start gap-x-4>
             <img rounded-full mt-1 w-14 h-14 src="@/assets/images/home/event_image_2.png" alt="profile" />
@@ -51,4 +51,4 @@ const res = useFileSystemAccess({
     </div>
 </template>
 
-<style scoped lang="css"></style>
+<style scoped lang="postcss"></style>

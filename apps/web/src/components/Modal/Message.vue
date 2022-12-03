@@ -144,7 +144,7 @@ interface IModalEmits {
                     </div>
 
                     <div
-                        class="w-full text-center text-lg text-primary dark:text-secondary font-bold mb-4"
+                        class="w-full text-center text-lg text-primary dark:text-violet-500 font-bold mb-4"
                     >
                         <span v-if="type === 'SUCCESS'">Success</span>
                         <span v-if="type === 'ERROR'">Error</span>
@@ -186,14 +186,14 @@ interface IModalEmits {
     </Teleport>
 </template>
 
-<style lang="css" scoped>
+<style lang="postcss" scoped>
 .modal {
     @apply fixed top-0 left-0 w-screen h-screen flex overflow-y-auto font-primary;
     @apply bg-gray-100 bg-opacity-70 dark:bg-gray-900 dark:bg-opacity-70;
 }
 
 .modal-content {
-    @apply p-14 m-auto background relative rounded-lg overflow-hidden overflow-y-auto shadow-btn dark:shadow-btn-dark;
+    @apply p-14 m-auto bg-gray-200 dark:bg-gray-900 relative rounded-lg overflow-hidden overflow-y-auto shadow-btn dark:shadow-btn-dark;
     /* @apply min-w-[80%] md:min-w-[70%] lg:min-w-[40%]  */
 }
 .btn-success {

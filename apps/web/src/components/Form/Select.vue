@@ -96,7 +96,7 @@ defineExpose({ input })
           <template #content>
             <slot
               name="input" :selection="selection" :has-value="hasValue"
-              class_details="p-2 text-sm rounded-md nav-background bg-[#EEF2FB] dark:bg-[#1C2434] shadow-text-box dark:shadow-text-box-dark"
+              class_details="p-2 text-sm rounded-md nav-bg-gray-200 dark:bg-gray-900 bg-[#EEF2FB] dark:bg-[#1C2434] shadow-text-box dark:shadow-text-box-dark"
             >
               <div class="input">
                 {{ hasValue ? valueText : (placeholder ?? 'Select') }}
@@ -141,12 +141,12 @@ defineExpose({ input })
   </div>
 </template>
 
-<style lang="css" scoped>
+<style lang="postcss" scoped>
 .input {
   @apply text-sm cursor-pointer flex justify-between items-center;
 }
 
 .input-option-class {
-  @apply text-color-primary border border-color background-secondary rounded-lg;
+  @apply text-color-primary border border-color bg-white dark:bg-black rounded-lg;
 }
 </style>

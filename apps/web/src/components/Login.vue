@@ -44,7 +44,7 @@ onMounted(async () => {
                             <li>
                                 <button
                                     type="button"
-                                    class="background p-1 rounded-full"
+                                    class="bg-gray-200 dark:bg-gray-900 p-1 rounded-full"
                                     @click="socialLogin.socialLogin('google')"
                                 >
                                     <img
@@ -60,7 +60,7 @@ onMounted(async () => {
                             <li>
                                 <button
                                     type="button"
-                                    class="background p-1 rounded-full"
+                                    class="bg-gray-200 dark:bg-gray-900 p-1 rounded-full"
                                     @click="socialLogin.socialLogin('facebook')"
                                 >
                                     <img
@@ -139,4 +139,4 @@ onMounted(async () => {
     </ModalCustom>
 </template>
 
-<style scoped lang="css"></style> -->
+<style scoped lang="postcss"></style> -->

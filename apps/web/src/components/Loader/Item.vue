@@ -13,7 +13,7 @@
     </div>
 </template>
 
-<style scoped lang="css">
+<style scoped lang="postcss">
 .container {
     @apply h-screen w-screen;
 }

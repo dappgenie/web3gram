@@ -135,12 +135,12 @@ watchEffect(() => {
     </div>
 </template>
 
-<style lang="css" scoped>
+<style lang="postcss" scoped>
 /* -------------------------------------------------------------------------- */
 /*                                 TRANSITIONS                                */
 /* -------------------------------------------------------------------------- */
 .dropdown-content {
-    @apply absolute py-2 mt-1 z-50 rounded-lg w-fit background-secondary overflow-hidden overflow-y-scroll shadow-xl;
+    @apply absolute py-2 mt-1 z-50 rounded-lg w-fit bg-white dark:bg-black overflow-hidden overflow-y-scroll shadow-xl;
 }
 
 .bounce-right-enter-active {

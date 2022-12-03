@@ -31,9 +31,9 @@ defineProps<IInputGroup>()
     </div>
 </template>
 
-<style lang="css" scoped>
+<style lang="postcss" scoped>
 .label {
-    @apply background-secondary;
+    @apply bg-white dark:bg-black;
     @apply text-xs text-primary font-medium;
 }
 

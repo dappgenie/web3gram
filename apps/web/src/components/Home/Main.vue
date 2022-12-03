@@ -8,7 +8,7 @@
     </div>
 </template>
 
-<style scoped lang="css">
+<style scoped lang="postcss">
 .details {
     @apply flex flex-col sm:flex-row gap-2 justify-between items-center text-sm mt-6;
 }

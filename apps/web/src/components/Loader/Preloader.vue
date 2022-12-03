@@ -12,10 +12,10 @@
     </Teleport>
 </template>
 
-<style scoped lang="css">
+<style scoped lang="postcss">
 .loader {
     @apply w-full h-full z-10 flex justify-center items-center;
-    @apply background absolute top-0 left-0;
+    @apply bg-gray-200 dark:bg-gray-900 absolute top-0 left-0;
     /* height: calc(100vh - 7.5rem); */
 }
 .lds-ring {

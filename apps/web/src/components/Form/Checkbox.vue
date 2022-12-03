@@ -36,7 +36,7 @@ interface ICheckboxEmits {
     </label>
 </template>
 
-<style scoped lang="css">
+<style scoped lang="postcss">
 .checkbox {
     @apply bg-transparent border-1 border-primary rounded-md;
     position: relative;
@@ -48,7 +48,7 @@ interface ICheckboxEmits {
     -webkit-appearance: none;
     -moz-appearance: none;
     outline: none;
-    @apply relative background text-primary border-0 rounded-md m-0 p-0 cursor-pointer;
+    @apply relative bg-gray-200 dark:bg-gray-900 text-primary border-0 rounded-md m-0 p-0 cursor-pointer;
     transition: box-shadow 0.3s;
 }
 .shadow-light {

@@ -15,69 +15,41 @@ const isOpen = ref<boolean>(false)
 const isLoginOpen = ref<boolean>(false)
 const router = useRouter()
 const signin = () => {
-    // if (!address.value) 
-    isLoginOpen.value = true
+  // if (!address.value) 
+  isLoginOpen.value = true
 }
 const signout = () => {
-    // socialLogin.disconnect()
-    // logout()
+  // socialLogin.disconnect()
+  // logout()
 }
 onMounted(async () => {
-    // await socialLogin.init(ethers.utils.hexValue(activeChainId))
-    // if (address.value) await socialLogin.getUserInfo()
+  // await socialLogin.init(ethers.utils.hexValue(activeChainId))
+  // if (address.value) await socialLogin.getUserInfo()
 })
 </script>
 
 <template>
-    <div class="w-screen z-50 fixed background flex justify-between items-center flex-col">
-        <div class="border-b-1 border-[#E7E7E7] dark:border-primary w-full flex justify-between items-center py-5 px-4 md:px-10 xl:px-12 2xl:px-14">
-            <img v-if="isDark" h-8 md:h-11 w-auto src="@/assets/images/logo_dark_alpha.svg" alt="logo" />
-            <img v-else h-8 md:h-11 w-auto src="@/assets/images/logo_light_alpha.svg" alt="logo" />
-            <div flex md:hidden gap-6 justify-end items-center>
-                <DarkToggle />
-                <button
-                    btn
-                    text-xl
-                    text-color-primary
-                    active:text-2xl
-                    i-mdi:menu
-                    @click="isOpen = !isOpen"
-                />
-            </div>
-            <div class="hidden md:flex justify-end items-center text-base font-bold gap-x-12">
-                <div btn i-mdi:home @click="router.push('/newsfeed')" />
-                <div
-                    btn
-                    i-mdi:account-group
-                    @click="router.push('/friends-requests')"
-                />
-                <div btn i-mdi:bell @click="router.push('/notifications')" />
-                <div btn i-mdi:chat @click="router.push('/chat')" />
+  <div class="header text-black dark:text-white">
+    <div class="navbar">
+      <img v-if="isDark" h-8 md:h-11 w-auto src="@/assets/images/logo_dark_alpha.svg" alt="logo" />
+      <img v-else h-8 md:h-11 w-auto src="@/assets/images/logo_light_alpha.svg" alt="logo" />
+      <div class="menu">
+        <div btn i-mdi:home @click="router.push('/newsfeed')" />
+        <div btn i-mdi:account-group @click="router.push('/friends-requests')" />
+        <div btn i-mdi:bell @click="router.push('/notifications')" />
+        <div btn i-mdi:chat @click="router.push('/chat')" />
 
-                <DarkToggle />
-                <Button
-                    id="connect-wallet-login-btn"
-                    name="connect-wallet-login-btn"
-                    rounded="full"
-                    w-24
-                    @click="signin()"
-                >
-                    <template #content> Login </template>
-                </Button>
-                <Dropdown
-                    id="nav-dropdown"
-                    parent-class="w-fit"
-                    name="nav-dropdown"
-                >
-                    <template #default>
-                        <Button
-                            id="connect-wallet-btn"
-                            name="connect-wallet-btn"
-                            rounded="full"
-                            w-fit
-                        >
-                            <template #content>
-                                <!-- {{
+        <DarkToggle />
+        <Button id="connect-wallet-login-btn" name="connect-wallet-login-btn" color="blue" rounded="full" w-24
+          @click="signin()">
+          <template #content> Login </template>
+        </Button>
+        <Dropdown id="nav-dropdown" parent-class="w-fit text-black dark:text-white" name="nav-dropdown">
+          <template #default>
+            <Button id="connect-wallet-btn" name="connect-wallet-btn" color="blue" rounded="full" w-fit>
+              <template #content>
+                Address
+                <!-- {{
                                     `${address.substring(
                                         0,
                                         5
@@ -86,40 +58,41 @@ onMounted(async () => {
                                         address.length
                                     )}`
                                 }} -->
-                            </template>
-                        </Button>
-                    </template>
-                    <template #content>
-                        <div p-2 m-auto w-fit>
-                            <div dropdown-item>My Profile</div>
-                            <div dropdown-item @click="signout()">Logout</div>
-                        </div>
-                    </template>
-                </Dropdown>
-                <!-- <SocialLogin/> -->
-            </div>
-        </div>
-        <!-- <Transition name="mobile-nav"> -->
-        <div class="font-bold background block space-y-3 text-center overflow-hidden transition-all" :class="[isOpen ? 'py-6 h-auto' : 'py-0 h-0']">
-            <div btn i-mdi:home />
-            <div btn i-mdi:account-group />
-            <div btn i-mdi:bell />
-            <div btn i-mdi:chat />
-            <Button
-                id="connect-wallet-btn"
-                name="connect-wallet-btn"
-                rounded="full"
-                w-24
-                @click="signin()"
-            >
-                <template #content> Login </template>
+              </template>
             </Button>
-        </div>
-        <!-- </Transition> -->
+          </template>
+          <template #content>
+            <div p-2 m-auto w-fit>
+              <div class="dropdown-option">My Profile</div>
+              <div class="dropdown-option" @click="signout()">Logout</div>
+            </div>
+          </template>
+        </Dropdown>
+        <!-- <SocialLogin/> -->
+      </div>
     </div>
-    <!-- <LoaderPreloader v-if="isLoader" />
+  </div>
+  <!-- <LoaderPreloader v-if="isLoader" />
     <Login v-if="isLoginOpen" /> -->
 </template>
 
-<style module lang="css">
+<style scoped lang="postcss">
+.header {
+  @apply w-screen top-0 z-50 fixed bg-gray-200 dark:bg-gray-900 flex justify-between items-center flex-col;
+}
+
+.navbar {
+  @apply border-b border-[#E7E7E7] dark:border-gray-400 w-full flex justify-between items-center py-5 px-4 md:px-10 xl:px-12 2xl:px-14;
+}
+.dropdown-option {
+  @apply px-6 py-3 text-sm text-black dark:text-white cursor-pointer;
+}
+
+.mob-nav {
+  @apply font-bold bg-gray-200 dark:bg-gray-900 block space-y-3 text-center overflow-hidden transition-all;
+}
+
+.menu {
+  @apply hidden md:flex justify-end items-center text-base font-bold gap-x-12;
+}
 </style>

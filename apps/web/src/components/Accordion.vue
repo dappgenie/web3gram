@@ -28,7 +28,7 @@ interface IButtonProps {
             />
         </div>
         <div
-            class="w-full dropdown-animate transition-all overflow-hidden background-secondary"
+            class="w-full dropdown-animate transition-all overflow-hidden bg-white dark:bg-black"
             :class="isOpen ? 'expand opacity-100' : 'max-h-0 opacity-0'"
         >
             <div px-3 pt-2 pb-4 md:px-7 md:pb-8>
@@ -38,7 +38,7 @@ interface IButtonProps {
     </div>
 </template>
 
-<style scoped lang="css">
+<style scoped lang="postcss">
 .dropdown-animate {
     transition: max-height 400ms, opacity 400ms;
 }

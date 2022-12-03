@@ -47,9 +47,9 @@ const subtract = () => {
     </div>
 </template>
 
-<style scoped lang="css">
+<style scoped lang="postcss">
 .button-class {
-    @apply text-sm cursor-pointer p-1 background-secondary;
+    @apply text-sm cursor-pointer p-1 bg-white dark:bg-black;
     @apply border rounded-full border-primary;
 }
 /* Chrome, Safari, Edge, Opera */
