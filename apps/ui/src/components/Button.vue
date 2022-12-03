@@ -37,7 +37,7 @@ defineProps<IButtonProps>()
         @apply bg-black/90 dark:bg-gray-200 hover:bg-[#black]/40 hover:dark:bg-gray-100 text-white dark:text-black;
     }
     .btn-blue {
-        @apply bg-sky dark:bg-sky-800 hover:bg-sky/40 hover:dark:bg-sky-100 text-white;
+        @apply bg-secondary hover:bg-sksecondary/50 hover:dark:bg-secondary/80 text-white;
     }
     .btn-primary {
         @apply bg-primary dark:bg-secondary hover:bg-primary/80 dark:hover:bg-secondary/80 text-white;

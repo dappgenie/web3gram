@@ -9,6 +9,7 @@ const { isLoader } = storeToRefs(useLoaderStore())
 const { address } = storeToRefs(useUserStore())
 const isOpen = ref<boolean>(false)
 const isLoginOpen = ref<boolean>(false)
+const router = useRouter()
 const signin = () => {
   if (!address.value)
     isLoginOpen.value = true
@@ -34,10 +35,10 @@ onMounted(async () => {
         <button btn text-xl text-color-primary active:text-2xl i-mdi:menu @click="isOpen = !isOpen" />
       </div>
       <div :class="$style.menu">
-        <div  i-mdi:home/>
-        <div i-mdi:account-group/>
-        <div i-mdi:bell/>
-        <div i-mdi:chat/>
+        <div btn i-mdi:home  @click="router.push('/newsfeed')" />
+        <div btn i-mdi:account-group  @click="router.push('/friends-requests')" />
+        <div btn i-mdi:bell  @click="router.push('/notifications')" />
+        <div btn i-mdi:chat  @click="router.push('/chat')" />
 
         <DarkToggle />
         <Button
@@ -58,6 +59,9 @@ onMounted(async () => {
           </template>
           <template #content>
             <div p-2 m-auto w-fit>
+              <div dropdown-item>
+                My Profile
+              </div>
               <div dropdown-item @click="signout()">
                 Logout
               </div>
@@ -69,8 +73,10 @@ onMounted(async () => {
     </div>
     <!-- <Transition name="mobile-nav"> -->
     <div :class="[$style['mob-nav'], isOpen ? 'py-6 h-auto' : 'py-0 h-0']">
-      <div>About Us</div>
-      <div>How it works</div>
+        <div btn i-mdi:home/>
+        <div btn i-mdi:account-group/>
+        <div btn i-mdi:bell/>
+        <div btn i-mdi:chat/>
       <Button id="connect-wallet-btn" name="connect-wallet-btn" color="blue" rounded="full" w-24 @click="signin()">
         <template #content>
           Login
