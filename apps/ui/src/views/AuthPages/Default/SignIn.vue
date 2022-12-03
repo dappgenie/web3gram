@@ -40,11 +40,6 @@
                     <label class="form-label" for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control mb-0" id="exampleInputEmail1" placeholder="Enter email">
                 </div>
-                <div class="form-group">
-                    <label class="form-label" for="exampleInputPassword1">Password</label>
-                    <router-link :to="{ name: 'auth1.recoverpassword1'}" class="float-end">Forgot password?</router-link>
-                    <input type="password" class="form-control mb-0" id="exampleInputPassword1" placeholder="Password">
-                </div>
                 <div class="d-inline-block w-100">
                     <div class="form-check d-inline-block mt-2 pt-1">
                         <input type="checkbox" class="form-check-input" id="customCheck11">
@@ -53,7 +48,6 @@
                     <button type="submit" class="btn btn-primary float-end">Sign in</button>
                 </div>
                 <div class="sign-info">
-                    <span class="dark-color d-inline-block line-height-2">Don't have an account?<router-link :to="{ name: 'auth1.sign-up1'}"> Sign Up</router-link></span>
                     <ul class="iq-social-media">
                         <li>
                           <a href="#">
@@ -93,7 +87,7 @@
 import Swiper from '../../../components/custom/slider/Swiper'
 import SwiperSlide from '../../../components/custom/slider/SwiperSlide'
 export default {
-  name: 'SignIn1',
+  name: 'SignIn',
   components: { Swiper, SwiperSlide },
   data () {
     return {

@@ -786,55 +786,11 @@
             "name": "sidebar.login",
             "is_active": false,
             "link": {
-              "name": "auth1.sign-in1"
+              "name": "auth1.sign-in"
             },
             "class_name": "",
             "is_icon_class": true,
             "icon": "ri-login-box-line"
-          },
-          {
-            "title": "Register",
-            "name": "sidebar.register",
-            "is_active": false,
-            "link": {
-              "name": "auth1.sign-up1"
-            },
-            "class_name": "",
-            "is_icon_class": true,
-            "icon": "ri-login-circle-line"
-          },
-          {
-            "title": "Recover Password",
-            "name": "sidebar.recoverPassword",
-            "is_active": false,
-            "link": {
-              "name": "auth1.password-reset1"
-            },
-            "class_name": "",
-            "is_icon_class": true,
-            "icon": "ri-record-mail-line"
-          },
-          {
-            "title": "Confirm Mail",
-            "name": "sidebar.confirmMail",
-            "is_active": false,
-            "link": {
-              "name": "auth1.confirm-mail1"
-            },
-            "class_name": "",
-            "is_icon_class": true,
-            "icon": "ri-file-code-line"
-          },
-          {
-            "title": "Lock Screen",
-            "name": "sidebar.lockScreen",
-            "is_active": false,
-            "link": {
-              "name": "auth1.lock-screen1"
-            },
-            "class_name": "",
-            "is_icon_class": true,
-            "icon": "ri-lock-line"
           }
         ]
       },
