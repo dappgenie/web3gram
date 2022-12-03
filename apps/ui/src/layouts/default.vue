@@ -4,7 +4,6 @@
   </div>
   <!-- loader END -->
   <!-- Wrapper Start -->
-  <!-- <DefaultSidebar /> -->
   <DefaultHeader :image="logoimage" />
   <div class="main-content">
     <div id="content-page" class="content-page">
@@ -20,10 +19,8 @@
   </div>
 </template>
 <script>
-import DefaultSidebar from '../components/custom/partials/Sidebar/DefaultSidebar'
 import DefaultHeader from '../components/custom/partials/Header/DefaultHeader'
 import SettingOffcanvas from '@/components/custom/setting/SettingOffcanvas.vue'
-import DefaultRightSidebar from '../components/custom/partials/RightSidebar/DefaultRightSidebar'
 import Breadcrumb from '../components/custom/Breadcrumb/Breadcrumb'
 import logo from '../assets/images/logo.png'
 const fslightbox = () => import('../plugins/fslightbox/fslightbox')
@@ -33,9 +30,7 @@ export default {
     fslightbox()
   },
   components: {
-    DefaultSidebar,
     DefaultHeader,
-    DefaultRightSidebar,
     SettingOffcanvas,
     Breadcrumb
   },

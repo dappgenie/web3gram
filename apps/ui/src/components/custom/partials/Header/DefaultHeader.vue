@@ -96,7 +96,7 @@
                                         login
                                     </span>
                                     <div class="ms-3">
-                                        <router-link :to="{ name: 'auth1.sign-in1'}" class="mb-0 h6">
+                                        <router-link :to="{ name: 'auth1.sign-in'}" class="mb-0 h6">
                                         Sign out
                                         </router-link>
                                     </div>

@@ -13,7 +13,7 @@ const childRoutes = (prop, mode) => [
     path: 'profile',
     name: prop + '.profilemain',
     meta: { auth: true, name: 'Profile' },
-    component: () => import('../views/SocailMain/Profile/Profile')
+    component: () => import('../views/Profile/profile')
   },
   {
     path: 'profileimage',
@@ -81,19 +81,6 @@ const childRoutes = (prop, mode) => [
     meta: { auth: true, name: 'Friend Request' },
     component: () => import('../views/SocailMain/Friends/FriendRequest')
   },
-  {
-    path: 'profile1',
-    name: prop + '.profile1',
-    meta: { auth: true, name: 'Profile1' },
-    component: () => import('../views/Profile/profile')
-  },
-]
-const blankchildRoutes = (prop, mode) => [
-  {
-    path: 'signin',
-    name: prop + '.sign-in1',
-    component: () => import('../views/AuthPages/Default/SignIn1')
-  }
 ]
 const chatChildRoutes = (prop, mode) => [
   {
@@ -108,6 +95,13 @@ const pagesChildRoutes = (prop, mode = false) => [
     name: prop + '.error404',
     component: () => import('../views/Pages/Error404')
   },
+]
+const blankchildRoutes = (prop, mode) => [
+  {
+    path: 'signin',
+    name: prop + '.sign-in',
+    component: () => import('../views/AuthPages/Default/SignIn')
+  }
 ]
 const userChildRoute = (prop, mode = false) => [
   {

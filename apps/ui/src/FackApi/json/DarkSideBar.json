@@ -811,7 +811,7 @@
         "name": "sidebar.login",
         "is_active": false,
         "link": {
-          "name": "dark.auth1.sign-in1"
+          "name": "dark.auth1.sign-in"
         },
         "class_name": "",
         "is_icon_class": true,
