@@ -2,7 +2,7 @@
 
 <template>
     <div h-screen block>
-        <h2 class="m-auto mt-32 text-[10rem] font-bold text-center">
+        <h2 class="text-sm font-large">
             Web3gram
         </h2>
     </div>
