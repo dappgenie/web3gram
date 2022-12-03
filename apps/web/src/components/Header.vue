@@ -124,7 +124,7 @@ onMounted(async () => {
     <Login v-if="isLoginOpen" /> -->
 </template>
 
-<style module lang="css">
+<style module lang="postcss">
 .header {
     @apply w-screen z-50 fixed background flex justify-between items-center flex-col;
 }

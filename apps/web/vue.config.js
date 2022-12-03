@@ -1,6 +1,5 @@
 const { defineConfig } = require('@vue/cli-service')
 const webpack = require('webpack')
-const UnoCSS = require('@unocss/webpack').default
 module.exports = defineConfig({
     transpileDependencies: true,
     configureWebpack: {
@@ -22,7 +21,6 @@ module.exports = defineConfig({
             },
         },
         plugins: [
-            UnoCSS({}),
             new webpack.ProvidePlugin({
                 process: 'process/browser',
                 Buffer: ['buffer', 'Buffer'],
