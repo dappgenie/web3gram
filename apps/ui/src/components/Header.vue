@@ -50,7 +50,7 @@ onMounted(async () => {
         </Button>
         <Dropdown v-else id="nav-dropdown" parent-class="w-fit" name="nav-dropdown">
           <template #default>
-            <Button id="connect-wallet-btn" name="connect-wallet-btn" color="gradient" rounded="full" w-fit>
+            <Button id="connect-wallet-btn" name="connect-wallet-btn" color="blue" rounded="full" w-fit>
               <template #content>
                 {{ `${address.substring(0, 5)}...${address.substring(address.length - 3, address.length)}` }}
               </template>
@@ -71,7 +71,7 @@ onMounted(async () => {
     <div :class="[$style['mob-nav'], isOpen ? 'py-6 h-auto' : 'py-0 h-0']">
       <div>About Us</div>
       <div>How it works</div>
-      <Button id="connect-wallet-btn" name="connect-wallet-btn" color="gradient" rounded="full" w-24 @click="signin()">
+      <Button id="connect-wallet-btn" name="connect-wallet-btn" color="blue" rounded="full" w-24 @click="signin()">
         <template #content>
           Login
         </template>
