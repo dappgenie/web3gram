@@ -1,40 +1,59 @@
+/** eslint-disable quotes */
 {
+  // eslint-disable-next-line quotes
   "compilerOptions": {
+    // eslint-disable-next-line quotes
     "target": "esnext",
+    // eslint-disable-next-line quotes
     "module": "esnext",
+    // eslint-disable-next-line quotes
     "strict": true,
+    // eslint-disable-next-line quotes
     "jsx": "preserve",
+    // eslint-disable-next-line quotes
     "moduleResolution": "node",
+    // eslint-disable-next-line quotes
     "skipLibCheck": true,
+    // eslint-disable-next-line quotes
     "esModuleInterop": true,
+    // eslint-disable-next-line quotes
     "allowSyntheticDefaultImports": true,
+    // eslint-disable-next-line quotes
     "forceConsistentCasingInFileNames": true,
+    // eslint-disable-next-line quotes
     "useDefineForClassFields": true,
+    // eslint-disable-next-line quotes
     "sourceMap": true,
+    // eslint-disable-next-line quotes
     "baseUrl": ".",
-    "types": [
-      "webpack-env"
-    ],
+    // eslint-disable-next-line quotes
+    "types": ["webpack-env"],
+    // eslint-disable-next-line quotes
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      // eslint-disable-next-line quotes
+      "@/*": ["src/*"]
+      // eslint-disable-next-line quotes
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+    // eslint-disable-next-line quotes
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    // eslint-disable-next-line quotes
   },
+  // eslint-disable-next-line quotes
   "include": [
+    // eslint-disable-next-line quotes
     "src/**/*.ts",
+    // eslint-disable-next-line quotes
     "src/**/*.tsx",
+    // eslint-disable-next-line quotes
     "src/**/*.vue",
+    // eslint-disable-next-line quotes
     "tests/**/*.ts",
+    // eslint-disable-next-line quotes
     "tests/**/*.tsx"
+    // eslint-disable-next-line quotes
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  // eslint-disable-next-line quotes
+  "exclude": ["node_modules"]
+  // eslint-disable-next-line quotes
 }
+// eslint-disable-next-line quotes
