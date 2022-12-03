@@ -8,6 +8,11 @@ import generatedRoutes from '~pages'
 import '@unocss/reset/tailwind.css'
 import './styles/main.css'
 import 'uno.css'
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap"
+import VueSweetalert2 from 'vue-sweetalert2'
+import BootstrapVue3 from 'bootstrap-vue-3'
+import 'sweetalert2/dist/sweetalert2.min.css'
 
 const routes = setupLayouts(generatedRoutes)
 
@@ -20,5 +25,7 @@ export const createApp = ViteSSG(
     Object.values(import.meta.glob<{ install: UserModule }>('./modules/*.ts', { eager: true }))
       .forEach(i => i.install?.(ctx))
     ctx.app.use(Previewer)
+    ctx. app.use(VueSweetalert2)
+    ctx.app.use(BootstrapVue3)
   },
 )

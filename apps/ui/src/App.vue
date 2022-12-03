@@ -8,14 +8,14 @@ useHead({
     { name: 'description', content: 'Opinionated Vite Starter Template' },
     {
       name: 'theme-color',
-      content: computed(() => isDark.value ? '#00aba9' : '#ffffff'),
+      // content: computed(() => isDark.value ? '#00aba9' : '#ffffff'),
     },
   ],
   link: [
     {
       rel: 'icon',
       type: 'image/svg+xml',
-      href: computed(() => preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg'),
+      href: computed(() => '/favicon.svg'),
     },
   ],
 })
@@ -24,3 +24,8 @@ useHead({
 <template>
   <RouterView />
 </template>
+
+<style scoped lang="scss">
+@import "~/assets/scss/socialv.scss";
+@import "~/assets/scss/customizer.scss";
+</style>

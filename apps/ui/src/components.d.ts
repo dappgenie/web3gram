@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     Button: typeof import('./components/Button.vue')['default']
     FormInputGroup: typeof import('./components/Form/InputGroup.vue')['default']
     FormTextInput: typeof import('./components/Form/TextInput.vue')['default']
+    Header: typeof import('./components/Header.vue')['default']
     LoaderItem: typeof import('./components/Loader/Item.vue')['default']
     LoaderPreloader: typeof import('./components/Loader/Preloader.vue')['default']
     Login: typeof import('./components/Login.vue')['default']

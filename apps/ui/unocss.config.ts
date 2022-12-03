@@ -11,10 +11,8 @@ import {
 
 export default defineConfig({
   shortcuts: [
-    ['btn', 'px-4 py-1 rounded inline-block bg-teal-700 text-white cursor-pointer hover:bg-teal-800 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
+    ['btn', 'px-4 py-2 rounded inline-block text-white font-bold cursor-pointer bg-[#4fb5ff] disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
     ['icon-btn', 'inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600'],    
-    ['background', 'bg-[#F7F9FB] dark:bg-[#1C1C1C]'],
-    ['background-secondary', 'bg-white dark:bg-[#121212]'],
   ],
   presets: [
     presetUno(),
@@ -36,5 +34,10 @@ export default defineConfig({
     transformerDirectives(),
     transformerVariantGroup(),
   ],
+  theme: {
+    colors: {
+      primary: '#4fb5ff',
+    },
+  },
   safelist: 'prose prose-sm m-auto text-left'.split(' '),
 })

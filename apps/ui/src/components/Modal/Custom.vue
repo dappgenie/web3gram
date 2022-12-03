@@ -59,7 +59,7 @@ onClickOutside(target, (event) => {
 }
 
 .modal-content {
-  @apply m-auto background-secondary relative rounded-lg overflow-hidden overflow-y-auto shadow-lg;
+  @apply m-auto bg-white relative rounded-lg overflow-hidden overflow-y-auto shadow-lg;
   /* @apply min-w-[80%] md:min-w-[70%] lg:min-w-[40%]  */
 }
 .close-btn {

@@ -10,7 +10,7 @@ defineProps<IButtonProps>()
 </script>
 
 <template>
-  <button class="button-style" :class="[color ? `btn-${color}` : 'btn-base', rounded ? `rounded-${rounded}` : 'rounded-none']">
+  <button class="button-style btn-primary" :class="[color ? `btn-${color}` : 'btn-base', rounded ? `rounded-${rounded}` : 'rounded-none']">
     <div v-if="iconPosition === 'left'" class="mr-2">
       <slot name="icon" />
     </div>
@@ -35,9 +35,6 @@ defineProps<IButtonProps>()
     }
     .btn-base {
         @apply bg-black/90 dark:bg-gray-200 hover:bg-[#black]/40 hover:dark:bg-gray-100 text-white dark:text-black;
-    }
-    .btn-primary {
-        @apply bg-primary dark:bg-secondary hover:bg-primary/80 dark:hover:bg-secondary/80 text-white;
     }
     .btn-warning {
         @apply bg-red-700 dark:bg-red-900 hover:bg-red-600 dark:hover:bg-red-800 text-white;

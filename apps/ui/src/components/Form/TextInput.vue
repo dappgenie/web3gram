@@ -41,11 +41,22 @@ defineExpose({ input })
         :type="type ?? 'text'"
         :name="name"
         :disabled="disabled"
+        class="text search-input form-control bg-soft-primary w-full flex-1 outline-none" 
+        :placeholder="placeholder"
+        :value="modelValue"
+        @input="emit('update:modelValue', ($event.target as any).value)">
+      <!-- <input
+        :id="id"
+        ref="input"
+        :readonly="readonly"
+        :type="type ?? 'text'"
+        :name="name"
+        :disabled="disabled"
         class="bg-transparent w-full flex-1 outline-none text-gray-700 dark:text-gray-100 "
         :placeholder="placeholder"
         :value="modelValue"
         @input="emit('update:modelValue', ($event.target as any).value)"
-      >
+      > -->
     </slot>
     <template #right>
       <slot :attributes="iconAttributes" name="right" />
