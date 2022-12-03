@@ -17,6 +17,7 @@ import rollupNodePolyFill from 'rollup-plugin-node-polyfills'
 export default defineConfig({
   resolve: {
     alias: {
+      'buffer': path.resolve(__dirname, 'node_modules/buffer'),
       '~/': `${path.resolve(__dirname, 'src')}/`,
       'crypto': 'rollup-plugin-node-polyfills/polyfills/crypto-browserify',
       'stream': 'rollup-plugin-node-polyfills/polyfills/stream',
