@@ -7,30 +7,34 @@ import Tab from '@/components/Profile/Tab.vue';
 <template>
     <div class="container m-auto">
         <div>
-            <img class="image" src="@/assets/images/home/hotel_image_1.png" alt="cover" />
-            <div class="m-auto bg-white dark:bg-black">
+            <img
+                class="cover-pic"
+                src="@/assets/images/home/hotel_image_1.png"
+                alt="cover"
+            />
+            <div class="profile">
                 <img
-                    class="w-36 m-auto -mt-20 h-36 rounded-full object-cover shadow-lg border border-color"
+                    class="profile-pic"
                     src="@/assets/images/home/event_image_2.png"
                     alt="cover"
                 />
-                <div class="text-lg font-black m-auto mt-2 text-center w-full">
+                <div class="name">
                     Fred Mark
                 </div>
             </div>
             <div
-                class="h-36 px-8 py-8 bg-white dark:bg-black text-color-secondary w-full flex justify-end items-center gap-x-12 -mt-28"
+                class="profile-header"
             >
-                <div class="grid">
-                    <span class="text-sm font-bold">Posts</span>
+                <div class="title-box">
+                    <span class="title">Posts</span>
                     <span>60</span>
                 </div>
-                <div class="grid">
-                    <span class="text-sm font-bold">Followers</span>
+                <div class="title-box">
+                    <span class="title">Followers</span>
                     <span>100</span>
                 </div>
-                <div class="grid">
-                    <span class="text-sm font-bold">Following</span>
+                <div class="title-box">
+                    <span class="title">Following</span>
                     <span>260</span>
                 </div>
             </div>
@@ -43,7 +47,26 @@ import Tab from '@/components/Profile/Tab.vue';
 </template>
 
 <style scoped lang="postcss">
-.image {
-    @apply w-full h-64 object-cover;
+.cover-pic {
+    width: 100%;
+    @apply w-full h-72 object-cover;
+}
+.title-box {
+    @apply grid;
+    .title {
+        @apply text-sm font-bold;
+    }
+}
+.profile {
+    @apply m-auto bg-white dark:bg-black;
+}
+.profile-pic {
+    @apply w-36 m-auto -mt-20 h-36 rounded-full object-cover shadow-lg border border-gray-400;
+}
+.name {
+    @apply text-lg text-black dark:text-white font-black m-auto mt-2 text-center w-full;
+}
+.profile-header {
+    @apply h-36 px-8 py-8 bg-white dark:bg-black text-gray-300 w-full flex justify-end items-center gap-x-12 -mt-28;
 }
 </style>

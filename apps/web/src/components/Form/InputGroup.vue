@@ -34,12 +34,12 @@ defineProps<IInputGroup>()
 <style lang="postcss" scoped>
 .label {
     @apply bg-white dark:bg-black;
-    @apply text-xs text-primary font-medium;
+    @apply text-xs text-gray-300 font-medium;
 }
 
 .input-grp {
     @apply w-full relative px-2 items-center gap-x-2;
-    @apply bg-transparent border-color;
+    @apply bg-transparent border-gray-400;
 }
 
 .outline-bottom {
@@ -51,6 +51,6 @@ defineProps<IInputGroup>()
 }
 
 .outline-all {
-    @apply border rounded-md py-4.5;
+    @apply border rounded-md py-4;
 }
 </style>

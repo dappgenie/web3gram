@@ -1,6 +1,7 @@
 <script lang="ts" setup>import { placeholder } from '@babel/types';
 import { id } from 'date-fns/locale';
 import { ref, readonly } from 'vue';
+import InputGroup from './InputGroup.vue';
 
 interface ITextareaProps {
     modelValue?: string
@@ -11,6 +12,7 @@ interface ITextareaProps {
     readonly?: boolean
     disabled?: boolean
     rows?: number
+    value?: string
 }
 defineProps<ITextareaProps>()
 
@@ -29,7 +31,7 @@ defineExpose({ input })
         <p class="text-sm pb-1">
             <slot name="label" />
         </p>
-        <FormInputGroup :class="disabled ? 'opacity-50' : ''">
+        <InputGroup :class="disabled ? 'opacity-50' : ''">
             <textarea
                 :id="id"
                 ref="input"
@@ -39,10 +41,10 @@ defineExpose({ input })
                 :rows="rows ?? 6"
                 class="input"
                 :placeholder="placeholder"
-                :value="modelValue"
+                :value="value"
                 @input="emit('update:modelValue', ($event.target as any).value)"
             />
-        </FormInputGroup>
+        </InputGroup>
     </div>
 </template>
 

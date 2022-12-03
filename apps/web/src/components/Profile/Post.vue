@@ -3,6 +3,7 @@ import { reactive, ref, Ref } from 'vue'
 import { useFileSystemAccess } from '@vueuse/core';
 import Button from '../Button.vue';
 import TextArea from '../Form/TextArea.vue';
+import TextInput from '../Form/TextInput.vue';
 const content = reactive({
     caption: '',
     post: null,
@@ -23,11 +24,12 @@ const res = useFileSystemAccess({
 </script>
 
 <template>
-    <div bg-white dark:bg-black mt-4 p-4>
-        <h2 py-2>Create Post</h2>
-        <div w-full flex justify-start gap-x-4>
-            <img rounded-full mt-1 w-14 h-14 src="@/assets/images/home/event_image_2.png" alt="profile" />
-            <TextArea v-model="content.caption" />
+    <div class="card">
+        <h2 class="title">Create Post</h2>
+        <div class="post">
+            <img class="profile" src="@/assets/images/home/event_image_2.png" alt="profile" />
+            <TextArea :value="content.caption" :placeholder="'Type your caption'" />
+            <!-- <TextInput v-model="content.caption"/> -->
         </div>
         <div w-full flex justify-end mt-4 gap-x-4>
             <Button
@@ -51,4 +53,17 @@ const res = useFileSystemAccess({
     </div>
 </template>
 
-<style scoped lang="postcss"></style>
+<style scoped lang="postcss">
+.card {
+   @apply bg-white dark:bg-black mt-4 p-4;
+}
+.title {
+ @apply text-black dark:text-white py-2 text-left text-sm font-black;
+}
+.profile {
+    @apply rounded-full mt-1 w-14 h-14;
+}
+.post {
+    @apply  w-full flex justify-start gap-x-4;
+}
+</style>
