@@ -47,7 +47,7 @@ function postImage(){
         <h2 class="title">Create Post</h2>
         <img v-if="loadedImage"  :src="loadedImage" class="up-image" />
         <div class="post">
-            <img class="profile" src="@/assets/images/home/event_image_2.png" alt="profile" />
+            <img class="profile" src="@/assets/images/user.jpeg" alt="profile" />
             
             <textarea
                 ref="input"
