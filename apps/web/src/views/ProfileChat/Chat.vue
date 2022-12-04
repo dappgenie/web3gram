@@ -2,8 +2,16 @@
 import { ref } from 'vue';
 import '@/assets/css/chat.css'
 import { register } from 'vue-advanced-chat'
+import { useUserStore } from '@/store/user';
+import { storeToRefs } from "pinia";
+import { PushProtocol } from '@/sevices/push';
+
   register()
 const messagesLoaded = ref(false)
+const {ensName,address } = storeToRefs(useUserStore())
+
+// const push = new PushProtocol()
+
 const currentUserId = ref('1234')
 const rooms = ref([
   {

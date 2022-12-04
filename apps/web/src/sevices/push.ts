@@ -1,14 +1,14 @@
 import * as PushAPI from "@pushprotocol/restapi";
 import * as ethers from "ethers";
 
+const apikey = 'EC7ktlHlkI.7tXKVVG0fOVvCGM9BMst3GLGdn3g44fcGdsNOjhSELxYOxX2ZQza3AWFgFoR2lTL'
 
-
-export class Push {
+export class PushProtocol {
   pk: string
   pkey: string
   signer: ethers.Signer
   apiKey: string
-  constructor(pk: string,apiKey: string) {
+  constructor(pk: string,apiKey:string = apikey) {
     this.apiKey = apiKey;
     this.pk = pk
     this.pkey = `0x${pk}}`;
