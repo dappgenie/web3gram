@@ -6,15 +6,19 @@ import Tab from '@/components/Profile/Tab.vue';
 import { addNFT } from '@/composables/revise';
 import { useUserStore } from '@/store/user';
 import { storeToRefs } from 'pinia';
-const {address,ensName } = storeToRefs(useUserStore())
-const mint = async() => {
+import { applyPureReactInVue } from 'veaury'
+import { Chat } from "@pushprotocol/uiweb";
+const apikey = 'EC7ktlHlkI.7tXKVVG0fOVvCGM9BMst3GLGdn3g44fcGdsNOjhSELxYOxX2ZQza3AWFgFoR2lTL'
+const { address, ensName } = storeToRefs(useUserStore())
+const ReactChat = applyPureReactInVue(Chat)
+const mint = async () => {
   const tokenData = {
-    name: ensName??address,
+    name: ensName ?? address,
     image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fca%2Fimages%2F3d-gold-medal-with-star-and-ribbon-winner-award-icon-best-choice-badge-winner-award-badge-award-medal-icon%2F249182775&psig=AOvVaw1WiPi9XpHyHxG9-nIvlR3E&ust=1670204371943000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPCQx6nq3vsCFQAAAAAdAAAAABAW',
     tokenId: address,
     description: "Web3gram Social Badge"
   }
-  const properties = [{stage: 'Beginner', color: 'Purple'}]
+  const properties = [{ stage: 'Beginner', color: 'Purple' }]
   const data = await addNFT(tokenData, properties)
   console.log("🚀 ~ file: Profile.vue:19 ~ mint ~ data", data)
 }
@@ -31,8 +35,8 @@ const mint = async() => {
         </div>
       </div>
       <div class="profile-header">
-        <Button id="connect-wallet-login-btn" name="connect-wallet-login-btn" color="blue"
-          rounded="full" w-24 @click="mint()">
+        <Button id="connect-wallet-login-btn" name="connect-wallet-login-btn" color="blue" rounded="full" w-24
+          @click="mint()">
           <template #content> Mint Your Badge </template>
         </Button>
         <div class="profile-details">
@@ -52,6 +56,8 @@ const mint = async() => {
       </div>
     </div>
     <Post />
+    <ReactChat :account=address supportAddress="0x1BD3B9c3e37A1C6272085B5053A47c6eD29Fa423" :apiKey=apikey
+      env="staging" />
     <div class="posts">
       <Tab />
       <div class="list">

@@ -122,7 +122,9 @@ importers:
       postcss-nesting: ^10.2.0
       prettier: ^2.4.1
       process: ^0.11.10
+      react: ^18.2.0
       react-app-rewired: ^2.2.1
+      react-dom: ^18.2.0
       revise-sdk: ^0.2.0
       stream-browserify: ^3.0.0
       stream-http: ^3.2.0
@@ -132,6 +134,7 @@ importers:
       typescript: ~4.5.5
       unocss: ^0.47.2
       url: ^0.11.0
+      veaury: ^2.3.11
       vue: ^3.2.13
       vue-advanced-chat: ^2.0.6
       vue-router: ^4.0.3
@@ -145,9 +148,9 @@ importers:
       '@ensdomains/ens-avatar': 0.2.0
       '@ethersproject/providers': 5.7.2
       '@floating-ui/dom': 1.0.7
-      '@huddle01/huddle01-iframe': 0.0.8
+      '@huddle01/huddle01-iframe': 0.0.8_react@18.2.0
       '@pushprotocol/restapi': 0.2.2_ethers@5.7.2
-      '@pushprotocol/uiweb': 0.2.3_ic2fjjnkfn5sctc34ir5igviiy
+      '@pushprotocol/uiweb': 0.2.3_abhj5dziofvwkz3bkmgxgmm6gu
       '@vueuse/core': 9.6.0_vue@3.2.45
       '@web3auth/ui': 3.2.0
       core-js: 3.26.1
@@ -159,11 +162,14 @@ importers:
       npm: 9.1.3
       pinia: 2.0.27_oankqy72ltdeevri3bqxeckw3m
       pinia-plugin-persistedstate: 2.4.0_pinia@2.0.27
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
       revise-sdk: 0.2.0
-      styled-components: 5.3.6
+      styled-components: 5.3.6_biqbaboplfbrettd7655fr4n2y
       swiper: 8.4.5
+      veaury: 2.3.11_biqbaboplfbrettd7655fr4n2y
       vue: 3.2.45
-      vue-advanced-chat: 2.0.6
+      vue-advanced-chat: 2.0.6_biqbaboplfbrettd7655fr4n2y
       vue-router: 4.1.6_vue@3.2.45
       web3: 1.8.1
       web3.storage: 3.5.7
@@ -177,7 +183,7 @@ importers:
       '@vue/cli-plugin-babel': 5.0.8_4vzoj52adn4urlkms3xs45ndmu
       '@vue/cli-plugin-router': 5.0.8_@vue+cli-service@5.0.8
       '@vue/cli-plugin-typescript': 5.0.8_ofqlndzergwon5kl47tcsjspne
-      '@vue/cli-service': 5.0.8_vue@3.2.45
+      '@vue/cli-service': 5.0.8_y7clzfxvrpdyrmkxi5msdk3vre
       assert: 2.0.0
       autoprefixer: 10.4.13_postcss@8.4.19
       browserify-zlib: 0.2.0
@@ -3342,11 +3348,13 @@ packages:
       '@hapi/hoek': 9.3.0
     dev: true
 
-  /@huddle01/huddle01-iframe/0.0.8:
+  /@huddle01/huddle01-iframe/0.0.8_react@18.2.0:
     resolution: {integrity: sha512-UitrTEZZqm0X9ju/v5UiMUNoRzRay+ssXwYPbwS0GtwmhGvKJWSSoy6YHqMztm4udaeoTPxV+xncGdh4R+IKnQ==}
     engines: {node: '>=10'}
     peerDependencies:
       react: '>=16'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@humanwhocodes/config-array/0.11.7:
@@ -4363,7 +4371,7 @@ packages:
       - debug
     dev: false
 
-  /@pushprotocol/uiweb/0.2.3_ic2fjjnkfn5sctc34ir5igviiy:
+  /@pushprotocol/uiweb/0.2.3_abhj5dziofvwkz3bkmgxgmm6gu:
     resolution: {integrity: sha512-+V6k8l2wOerjbUBeNiyZKmGu3o1ES4ykIGuUe334osUBtQ0aEmlLxcjLceUkJXiT7cZKgFfMaBNFvrJ/ZQ85eA==}
     peerDependencies:
       '@pushprotocol/restapi': ^0.2.1
@@ -4375,8 +4383,9 @@ packages:
       date-fns: 2.29.3
       emoji-picker-react: 3.6.5
       ethers: 5.7.2
-      html-react-parser: 1.4.14
-      styled-components: 5.3.6
+      html-react-parser: 1.4.14_react@18.2.0
+      react: 18.2.0
+      styled-components: 5.3.6_biqbaboplfbrettd7655fr4n2y
     dev: false
 
   /@rollup/pluginutils/5.0.2:
@@ -5871,7 +5880,7 @@ packages:
     dependencies:
       '@babel/core': 7.20.5
       '@vue/babel-preset-app': 5.0.8_core-js@3.26.1+vue@3.2.45
-      '@vue/cli-service': 5.0.8_vue@3.2.45
+      '@vue/cli-service': 5.0.8_y7clzfxvrpdyrmkxi5msdk3vre
       '@vue/cli-shared-utils': 5.0.8
       babel-loader: 8.3.0_ztqwsvkb6z73luspkai6ilstpu
       thread-loader: 3.0.4_webpack@5.75.0
@@ -5892,7 +5901,7 @@ packages:
     peerDependencies:
       '@vue/cli-service': ^3.0.0 || ^4.0.0 || ^5.0.0-0
     dependencies:
-      '@vue/cli-service': 5.0.8_vue@3.2.45
+      '@vue/cli-service': 5.0.8_y7clzfxvrpdyrmkxi5msdk3vre
       '@vue/cli-shared-utils': 5.0.8
     transitivePeerDependencies:
       - encoding
@@ -5914,7 +5923,7 @@ packages:
     dependencies:
       '@babel/core': 7.20.5
       '@types/webpack-env': 1.18.0
-      '@vue/cli-service': 5.0.8_vue@3.2.45
+      '@vue/cli-service': 5.0.8_y7clzfxvrpdyrmkxi5msdk3vre
       '@vue/cli-shared-utils': 5.0.8
       babel-loader: 8.3.0_ztqwsvkb6z73luspkai6ilstpu
       fork-ts-checker-webpack-plugin: 6.5.2_uyjeyilaoraoef7u6cc2jqrzqe
@@ -5939,10 +5948,10 @@ packages:
     peerDependencies:
       '@vue/cli-service': ^3.0.0 || ^4.0.0 || ^5.0.0-0
     dependencies:
-      '@vue/cli-service': 5.0.8_vue@3.2.45
+      '@vue/cli-service': 5.0.8_y7clzfxvrpdyrmkxi5msdk3vre
     dev: true
 
-  /@vue/cli-service/5.0.8_vue@3.2.45:
+  /@vue/cli-service/5.0.8_y7clzfxvrpdyrmkxi5msdk3vre:
     resolution: {integrity: sha512-nV7tYQLe7YsTtzFrfOMIHc5N2hp5lHG2rpYr0aNja9rNljdgcPZLyQRb2YRivTHqTv7lI962UXFURcpStHgyFw==}
     engines: {node: ^12.0.0 || >= 14.0.0}
     hasBin: true
@@ -5981,8 +5990,8 @@ packages:
       '@vue/cli-plugin-router': 5.0.8_@vue+cli-service@5.0.8
       '@vue/cli-plugin-vuex': 5.0.8_@vue+cli-service@5.0.8
       '@vue/cli-shared-utils': 5.0.8
-      '@vue/component-compiler-utils': 3.3.0
-      '@vue/vue-loader-v15': /vue-loader/15.10.1_oc35zxefkinkyp3k4ftpnmr7k4
+      '@vue/component-compiler-utils': 3.3.0_biqbaboplfbrettd7655fr4n2y
+      '@vue/vue-loader-v15': /vue-loader/15.10.1_nu5jcw6nsgg6ql6ddtpa56quju
       '@vue/web-component-wrapper': 1.3.0
       acorn: 8.8.1
       acorn-walk: 8.2.0
@@ -6151,10 +6160,10 @@ packages:
       '@vue/compiler-dom': 3.2.45
       '@vue/shared': 3.2.45
 
-  /@vue/component-compiler-utils/3.3.0:
+  /@vue/component-compiler-utils/3.3.0_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-97sfH2mYNU+2PzGrmK2haqffDpVASuib9/w2/noxiFi31Z54hW+q3izKQXXQZSNhtiUpAI36uSuYepeBe4wpHQ==}
     dependencies:
-      consolidate: 0.15.1
+      consolidate: 0.15.1_biqbaboplfbrettd7655fr4n2y
       hash-sum: 1.0.2
       lru-cache: 4.1.5
       merge-source-map: 1.1.0
@@ -7650,7 +7659,7 @@ packages:
       babel-plugin-syntax-jsx: 6.18.0
       lodash: 4.17.21
       picomatch: 2.3.1
-      styled-components: 5.3.6
+      styled-components: 5.3.6_biqbaboplfbrettd7655fr4n2y
     dev: false
 
   /babel-plugin-syntax-async-functions/6.13.0:
@@ -9134,7 +9143,7 @@ packages:
       await-lock: 1.1.3
     dev: false
 
-  /consolidate/0.15.1:
+  /consolidate/0.15.1_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-DW46nrsMJgy9kqAbPt5rKaCr7uFtpo4mSUvLHIUbJEjm0vo+aY5QLwBUq3FK4tRnJr/X0Psc0C4jf/h+HtXSMw==}
     engines: {node: '>= 0.10.0'}
     peerDependencies:
@@ -9300,6 +9309,8 @@ packages:
         optional: true
     dependencies:
       bluebird: 3.7.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: true
 
   /content-disposition/0.5.4:
@@ -12189,7 +12200,7 @@ packages:
       hardhat: ^2.0.0
     dependencies:
       ethers: 5.7.2
-      hardhat: 2.12.3
+      hardhat: 2.12.3_typescript@4.9.3
     dev: false
 
   /hardhat-deploy/0.11.22:
@@ -12329,6 +12340,7 @@ packages:
       - bufferutil
       - supports-color
       - utf-8-validate
+    dev: true
 
   /hardhat/2.12.3_typescript@4.5.5:
     resolution: {integrity: sha512-qxOvRNgQnLqRFssn5f8VP5KN3caytShU0HNeKxmPVK1Ix/0xDVhIC7JOLxG69DjOihUfmxmjqspsHbZvFj6EhQ==}
@@ -12650,13 +12662,14 @@ packages:
       void-elements: 3.1.0
     dev: false
 
-  /html-react-parser/1.4.14:
+  /html-react-parser/1.4.14_react@18.2.0:
     resolution: {integrity: sha512-pxhNWGie8Y+DGDpSh8cTa0k3g8PsDcwlfolA+XxYo1AGDeB6e2rdlyv4ptU9bOTiZ2i3fID+6kyqs86MN0FYZQ==}
     peerDependencies:
       react: 0.14 || 15 || 16 || 17 || 18
     dependencies:
       domhandler: 4.3.1
       html-dom-parser: 1.2.0
+      react: 18.2.0
       react-property: 2.0.0
       style-to-js: 1.1.1
     dev: false
@@ -14607,12 +14620,15 @@ packages:
   /lines-and-columns/1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
-  /linkifyjs/2.1.9:
+  /linkifyjs/2.1.9_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-74ivurkK6WHvHFozVaGtQWV38FzBwSTGNmJolEgFp7QgR2bl6ArUWlvT4GcHKbPe1z3nWYi+VUdDZk16zDOVug==}
     peerDependencies:
       jquery: '>= 1.11.0'
       react: '>= 0.14.0'
       react-dom: '>= 0.14.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /loader-runner/4.3.0:
@@ -14783,7 +14799,6 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
-    dev: false
 
   /loupe/2.3.6:
     resolution: {integrity: sha512-RaPMZKiMy8/JruncMU5Bt6na1eftNoo++R4Y+N2FrxkDVTrGvcyzFTsaGif4QTeKESheMGegbhw6iUAq+5A8zA==}
@@ -17119,7 +17134,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
-    dev: false
 
   /react-i18next/12.0.0_nger6pvrp5hnzeykouhwqmsdti:
     resolution: {integrity: sha512-/O7N6aIEAl1FaWZBNvhdIo9itvF/MO/nRKr9pYqRc9LhuC1u21SlfwpiYQqvaeNSEW3g3qUXLREOWMt+gxrWbg==}
@@ -17178,7 +17192,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /read-cache/1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
@@ -17728,7 +17741,6 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /schema-utils/2.7.0:
     resolution: {integrity: sha512-0ilKFI6QQF5nxDZLFn2dMjvc4hjg/Wkg7rHd3jK6/A4a1Hl9VFdQWvgB1UMGoU94pad1P/8N7fMcEnLnSiju8A==}
@@ -18601,7 +18613,7 @@ packages:
       inline-style-parser: 0.1.1
     dev: false
 
-  /styled-components/5.3.6:
+  /styled-components/5.3.6_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-hGTZquGAaTqhGWldX7hhfzjnIYBZ0IXQXkCYdvF1Sq3DsUaLx6+NTHC5Jj1ooM2F68sBiVz3lvhfwQs/S3l6qg==}
     engines: {node: '>=10'}
     requiresBuild: true
@@ -18618,6 +18630,8 @@ packages:
       babel-plugin-styled-components: 2.0.7_styled-components@5.3.6
       css-to-react-native: 3.0.0
       hoist-non-react-statics: 3.3.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
       shallowequal: 1.1.0
       supports-color: 5.5.0
     dev: false
@@ -19703,6 +19717,16 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
+  /veaury/2.3.11_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-Ok0tG8FmHbEqituLxRx0E4YnbcXUcEc4kIeWZv+sXKtD5RkmLoZLlU9EyViY4r43MF7cJDS9MGMMD5eISCUspA==}
+    peerDependencies:
+      react: '>= 16.4.0'
+      react-dom: '>= 16.4.0'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /verror/1.10.0:
     resolution: {integrity: sha512-ZZKSmDAEFOijERBLkmYfJ+vmk3w+7hOLYDNkRCuRuMJGEmqYNCNLyBBFwWKVMhfwaEF3WOd0Zlw86U/WC/+nYw==}
     engines: {'0': node >=0.6.0}
@@ -19717,11 +19741,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /vue-advanced-chat/2.0.6:
+  /vue-advanced-chat/2.0.6_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-EU1WcJ+cSjJYRf5PBewFFbnhnmvRi/4Xk9OWbNuYBqw/B1bOHLBMABhwgAQjwtK8gItGm8dbQMI3Gj8aMjHlKQ==}
     dependencies:
       emoji-picker-element: 1.12.1
-      linkifyjs: 2.1.9
+      linkifyjs: 2.1.9_biqbaboplfbrettd7655fr4n2y
     transitivePeerDependencies:
       - jquery
       - react
@@ -19747,7 +19771,7 @@ packages:
     resolution: {integrity: sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==}
     dev: true
 
-  /vue-loader/15.10.1_oc35zxefkinkyp3k4ftpnmr7k4:
+  /vue-loader/15.10.1_nu5jcw6nsgg6ql6ddtpa56quju:
     resolution: {integrity: sha512-SaPHK1A01VrNthlix6h1hq4uJu7S/z0kdLUb6klubo738NeQoLbS6V9/d8Pv19tU0XdQKju3D1HSKuI8wJ5wMA==}
     peerDependencies:
       '@vue/compiler-sfc': ^3.0.8
@@ -19763,7 +19787,7 @@ packages:
       vue-template-compiler:
         optional: true
     dependencies:
-      '@vue/component-compiler-utils': 3.3.0
+      '@vue/component-compiler-utils': 3.3.0_biqbaboplfbrettd7655fr4n2y
       css-loader: 6.7.2_webpack@5.75.0
       hash-sum: 1.0.2
       loader-utils: 1.4.2

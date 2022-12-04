@@ -1,15 +1,13 @@
 import * as PushAPI from "@pushprotocol/restapi";
 import * as ethers from "ethers";
 
-const apikey = 'EC7ktlHlkI.7tXKVVG0fOVvCGM9BMst3GLGdn3g44fcGdsNOjhSELxYOxX2ZQza3AWFgFoR2lTL'
+
 
 export class PushProtocol {
   pk: string
   pkey: string
   signer: ethers.Signer
-  apiKey: string
-  constructor(pk: string,apiKey:string = apikey) {
-    this.apiKey = apiKey;
+  constructor(pk: string) {
     this.pk = pk
     this.pkey = `0x${pk}}`;
     this.signer = new ethers.Wallet(this.pkey);
@@ -56,7 +54,7 @@ export class PushProtocol {
     return await PushAPI.user.create({account: `eip155:5:${address}`, env: 'staging'});
   }
   async listAllChats(address: string): Promise<any> {
-    return await PushAPI.chat.chats({env: 'staging',pgpPrivateKey:this.apiKey,account: `eip155:5:${address}`});
+    return await PushAPI.chat.chats({env: 'staging',pgpPrivateKey:'',account: `eip155:5:${address}`});
   }
 
 }
