@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { toggleDark, isDark } from '@/composables/dark';
+</script>
 
 <template>
     <button class="!outline-none" @click="toggleDark()">

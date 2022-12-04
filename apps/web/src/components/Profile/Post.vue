@@ -28,7 +28,14 @@ const res = useFileSystemAccess({
         <h2 class="title">Create Post</h2>
         <div class="post">
             <img class="profile" src="@/assets/images/home/event_image_2.png" alt="profile" />
-            <TextArea :value="content.caption" :placeholder="'Type your caption'" />
+            
+            <textarea
+                ref="input"
+                :rows="6"
+                class="input"
+                placeholder="Enter your caption"
+                v-model="content.caption"
+            />
             <!-- <TextInput v-model="content.caption"/> -->
         </div>
         <div class="buttons-list">
@@ -68,5 +75,8 @@ const res = useFileSystemAccess({
 }
 .buttons-list {
     @apply w-full flex justify-end mt-4 gap-x-4;
+}
+.input {
+    @apply w-full p-2 h-16 text-sm border border-gray-400 rounded-sm bg-white dark:bg-black outline-none;
 }
 </style>

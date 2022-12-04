@@ -1,16 +1,18 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+</script>
 
 <template>
-    <div h-screen block>
-        <h2 class="text-sm font-large">
-            Web3gram
-        </h2>
+    <div class="home">
+        <img src="@/assets/images/home/Home_Dark.png"/>
     </div>
 </template>
 
 <style scoped lang="postcss">
-.details {
-    @apply flex flex-col sm:flex-row gap-2 justify-between items-center text-sm mt-6;
+.home {
+    @apply grid h-screen;
+}
+img {
+    @apply w-1/3 m-auto;
 }
 
 #specifyColor {

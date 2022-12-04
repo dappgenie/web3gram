@@ -10,7 +10,7 @@ import Tab from '@/components/Profile/Tab.vue';
         <div>
             <img
                 class="cover-pic"
-                src="@/assets/images/home/hotel_image_1.png"
+                src="@/assets/images/NFTs/App.png"
                 alt="cover"
             />
             <div class="profile">
