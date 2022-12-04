@@ -5,8 +5,9 @@ import { register } from 'vue-advanced-chat'
 import { useUserStore } from '@/store/user';
 import { storeToRefs } from "pinia";
 import { PushProtocol } from '@/sevices/push';
-
+import { useRouter } from 'vue-router';
 import Button from '@/components/Button.vue';
+const router = useRouter()
   register()
 const messagesLoaded = ref(false)
 const {ensName,address } = storeToRefs(useUserStore())
@@ -78,7 +79,7 @@ const fetchMessages = ({ room, options }) => {
 <template>
 <div class="box">
   <div class="container">
-        <Button id="connect-wallet-login-btn" name="connect-wallet-login-btn" rounded="full" w-24
+        <Button id="connect-wallet-login-btn" name="connect-wallet-login-btn" @click="router.push('/video-chat')" rounded="full" w-24
           >
           <template #content> Switch to Video Call (Huddle01) </template>
         </Button>
