@@ -61,6 +61,7 @@ onMounted(async () => {
           @click="signin()">
           <template #content> Login </template>
         </Button>
+        <div class="avatar"><img src="@/assets/images/user.jpeg"/></div>
         <Dropdown id="nav-dropdown" parent-class="w-fit text-black dark:text-white" name="nav-dropdown">
           <template #default>
             <Button v-if="address" id="connect-wallet-btn" name="connect-wallet-btn" color="blue" rounded="full" w-fit>
@@ -102,6 +103,12 @@ onMounted(async () => {
 <style scoped lang="postcss">
 .header {
   @apply w-screen top-0 z-50 fixed bg-gray-200 dark:bg-gray-900 flex justify-between items-center flex-col;
+}
+.avatar {
+  @apply w-10 h-10 rounded-full overflow-hidden;
+}
+.avatar img {
+  @apply object-cover;
 }
 
 .navbar {
