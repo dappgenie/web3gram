@@ -12,6 +12,7 @@
     "@biconomy/smart-account": "^0.0.3",
     "@biconomy/web3-auth": "^0.0.3",
     "@floating-ui/dom": "^1.0.7",
+    "@huddle01/huddle01-iframe": "^0.0.8",
     "@pushprotocol/restapi": "^0.2.2",
     "@pushprotocol/uiweb": "0.2.3",
     "@vueuse/core": "^9.6.0",

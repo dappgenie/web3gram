@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import '@/assets/css/chat.css'
 import { register } from 'vue-advanced-chat'
+import Button from '@/components/Button.vue';
   register()
 const messagesLoaded = ref(false)
 const currentUserId = ref('1234')
@@ -68,6 +69,12 @@ const fetchMessages = ({ room, options }) => {
 
 <template>
 <div class="box">
+  <div class="container">
+        <Button id="connect-wallet-login-btn" name="connect-wallet-login-btn" rounded="full" w-24
+          >
+          <template #content> Switch to Video Call (Huddle01) </template>
+        </Button>
+  </div>
   <vue-advanced-chat
     :current-user-id="currentUserId"
     :rooms="JSON.stringify(rooms)"
@@ -79,6 +86,9 @@ const fetchMessages = ({ room, options }) => {
 
 <style scoped lang="css">
 .box {
-  @apply py-16 h-screen;
+  @apply py-10 h-screen;
+}
+.container {
+  @apply w-full flex my-4 justify-end;
 }
 </style>
