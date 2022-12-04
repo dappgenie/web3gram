@@ -15,7 +15,7 @@ import '../assets/css/biconomy.css'
 // const { address } = storeToRefs(useUserStore())
 import {useUserStore} from "@/store/user";
 import { storeToRefs } from "pinia";
-const {address,ensName } = storeToRefs(useUserStore())
+const {address,ensName,ensURI } = storeToRefs(useUserStore())
 const isOpen = ref<boolean>(false)
 const isLoginOpen = ref<boolean>(false)
 const router = useRouter()
@@ -61,6 +61,7 @@ onMounted(async () => {
           @click="signin()">
           <template #content> Login </template>
         </Button>
+        <div v-if="address && ensName" class="avatar"><img :src="ensURI"/></div>
         <Dropdown id="nav-dropdown" parent-class="w-fit text-black dark:text-white" name="nav-dropdown">
           <template #default>
             <Button v-if="address" id="connect-wallet-btn" name="connect-wallet-btn" color="blue" rounded="full" w-fit>
@@ -102,6 +103,12 @@ onMounted(async () => {
 <style scoped lang="postcss">
 .header {
   @apply w-screen top-0 z-50 fixed bg-gray-200 dark:bg-gray-900 flex justify-between items-center flex-col;
+}
+.avatar {
+  @apply w-10 h-10 rounded-full overflow-hidden;
+}
+.avatar img {
+  @apply object-cover;
 }
 
 .navbar {

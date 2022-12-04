@@ -30,6 +30,11 @@ const routes: Array<RouteRecordRaw> = [
                 name: 'chat',
                 component: () => import('../views/ProfileChat/Chat.vue'),
             },
+            {
+                path: '/video-chat',
+                name: 'video-chat',
+                component: () => import('../views/ProfileChat/VideoCall.vue'),
+            },
         ],
     },
 ]
