@@ -2,11 +2,11 @@ const { defineConfig } = require('@vue/cli-service')
 const webpack = require('webpack')
 module.exports = defineConfig({
     transpileDependencies: true,
-    compilerOptions: {
-        isCustomElement: tagName => {
-          return tagName === 'vue-advanced-chat' || tagName === 'emoji-picker'
-        }
-      },
+    // compilerOptions: {
+    //     isCustomElement: tagName => {
+    //       return tagName === 'vue-advanced-chat' || tagName === 'emoji-picker'
+    //     }
+    //   },
     configureWebpack: {
         resolve: {
             fallback: {
