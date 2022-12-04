@@ -15,7 +15,7 @@ import '../assets/css/biconomy.css'
 // const { address } = storeToRefs(useUserStore())
 import {useUserStore} from "@/store/user";
 import { storeToRefs } from "pinia";
-const {address } = storeToRefs(useUserStore())
+const {address,ensName } = storeToRefs(useUserStore())
 const isOpen = ref<boolean>(false)
 const isLoginOpen = ref<boolean>(false)
 const router = useRouter()
@@ -26,6 +26,11 @@ const signin = () => {
 
 const signout = () => {
     biconomyService.signOut()
+    // socialLogin.disconnect()
+    // logout()
+}
+const testFun = () => {
+    biconomyService.postUserPost('bafybeig7gxwrpmn6zbm5iqtghc3j2o5xs45nalkp5btk2zjvbvdwlezoce')
     // socialLogin.disconnect()
     // logout()
 }
@@ -73,7 +78,7 @@ onMounted(async () => {
                 >
                     <template #content> Login </template>
                 </Button>
-                <div v-if="address"> {{address}}</div>
+                <div v-if="address"> {{ensName ? ensName : address}}</div>
                 <Button
                 v-if="address"
                     id="connect-wallet-login-btn"
@@ -84,6 +89,18 @@ onMounted(async () => {
                     @click="signout()"
                 >
                     <template #content> LogOut</template>
+                </Button>
+
+                <Button
+                v-if="address"
+                    id="connect-wallet-login-btn"
+                    name="connect-wallet-login-btn"
+                    color="blue"
+                    rounded="full"
+                    w-24
+                    @click="testFun()"
+                >
+                    <template #content> Contract Call</template>
                 </Button>
                 <Dropdown
                     id="nav-dropdown"
