@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { isDark } from '@/composables/dark';
+import { BiconomyService } from '@/sevices/biconomy';
 import { ethers } from 'ethers'
 // import { activeChainId } from '~/utils/factories/chainConfig'
 import { onMounted, ref } from 'vue';
@@ -7,20 +8,33 @@ import { useRouter } from 'vue-router';
 import Button from './Button.vue';
 import DarkToggle from './DarkToggle.vue';
 import Dropdown from './Dropdown.vue';
+import '../assets/css/biconomy.css'
 // const socialLogin = new useSocialLogin()
 // const { logout } = useUserStore()
 // const { isLoader } = storeToRefs(useLoaderStore())
 // const { address } = storeToRefs(useUserStore())
+import {useUserStore} from "@/store/user";
+import { storeToRefs } from "pinia";
+const {address,ensName } = storeToRefs(useUserStore())
 const isOpen = ref<boolean>(false)
 const isLoginOpen = ref<boolean>(false)
 const router = useRouter()
+const biconomyService = new BiconomyService();
 const signin = () => {
   // if (!address.value) 
   isLoginOpen.value = true
+    biconomyService.showModel()
 }
+
 const signout = () => {
-  // socialLogin.disconnect()
-  // logout()
+    biconomyService.signOut()
+    // socialLogin.disconnect()
+    // logout()
+}
+const testFun = () => {
+    biconomyService.postUserPost('bafybeig7gxwrpmn6zbm5iqtghc3j2o5xs45nalkp5btk2zjvbvdwlezoce')
+    // socialLogin.disconnect()
+    // logout()
 }
 onMounted(async () => {
   // await socialLogin.init(ethers.utils.hexValue(activeChainId))
@@ -43,15 +57,21 @@ onMounted(async () => {
         <div @click="router.push('/chat')"><svg width="28" height="28" viewBox="0 0 24 24"><path fill="#888888" d="M12 3c5.5 0 10 3.58 10 8s-4.5 8-10 8c-1.24 0-2.43-.18-3.53-.5C5.55 21 2 21 2 21c2.33-2.33 2.7-3.9 2.75-4.5C3.05 15.07 2 13.13 2 11c0-4.42 4.5-8 10-8Z"/></svg></div>
 
         <!-- <DarkToggle /> -->
-        <Button id="connect-wallet-login-btn" name="connect-wallet-login-btn" color="blue" rounded="full" w-24
+        <Button v-if="!address" id="connect-wallet-login-btn" name="connect-wallet-login-btn" color="blue" rounded="full" w-24
           @click="signin()">
           <template #content> Login </template>
         </Button>
         <Dropdown id="nav-dropdown" parent-class="w-fit text-black dark:text-white" name="nav-dropdown">
           <template #default>
-            <Button id="connect-wallet-btn" name="connect-wallet-btn" color="blue" rounded="full" w-fit>
+            <Button v-if="address" id="connect-wallet-btn" name="connect-wallet-btn" color="blue" rounded="full" w-fit>
               <template #content>
-                Address
+                {{ensName ? ensName : `${address.substring(
+                                        0,
+                                        5
+                                    )}...${address.substring(
+                                        address.length - 3,
+                                        address.length
+                                    )}`}}
                 <!-- {{
                                     `${address.substring(
                                         0,
