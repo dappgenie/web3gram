@@ -8,6 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@biconomy/web3-auth":"^0.0.3",
+    "@biconomy/smart-account":"^0.0.3",
     "@floating-ui/dom": "^1.0.7",
     "@pushprotocol/restapi": "^0.2.2",
     "@pushprotocol/uiweb": "0.2.3",

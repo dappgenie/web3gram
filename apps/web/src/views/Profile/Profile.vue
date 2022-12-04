@@ -16,7 +16,7 @@ import Tab from '@/components/Profile/Tab.vue';
             <div class="profile">
                 <img
                     class="profile-pic"
-                    src="@/assets/images/home/event_image_2.png"
+                    src="@/assets/images/user.jpeg"
                     alt="cover"
                 />
                 <div class="name">
