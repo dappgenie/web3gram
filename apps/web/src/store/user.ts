@@ -3,6 +3,7 @@ import { ref } from "vue";
 export const useUserStore = defineStore("user", ()=> {
   const address = ref('')
   const ensName = ref('')
+  const ensURI = ref('')
   const ETHProvider = ref(null)
   const FVMProvider = ref(null)
   const biconomyEth = ref(null)
@@ -12,6 +13,9 @@ export const useUserStore = defineStore("user", ()=> {
   }
   function setENSName(newData: string) {
     ensName.value = newData;
+  }
+  function setEnsURI(newData: string) {
+    ensURI.value = newData;
   }
   function setETHProvider(data: any) {
     ETHProvider.value = data;
@@ -26,7 +30,7 @@ export const useUserStore = defineStore("user", ()=> {
     biconomyFvm.value = data;
   }
 
-  return { address,setAddress ,setFVMProvider,setETHProvider,ETHProvider,FVMProvider,setENSName,ensName,setBiconomyETH,setBiconomyFVM,biconomyEth,biconomyFvm}
+  return { ensURI,setEnsURI,address,setAddress ,setFVMProvider,setETHProvider,ETHProvider,FVMProvider,setENSName,ensName,setBiconomyETH,setBiconomyFVM,biconomyEth,biconomyFvm}
 });
 
 if (import.meta.webpackHot) {

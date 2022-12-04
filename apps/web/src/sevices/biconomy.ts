@@ -6,8 +6,10 @@ import {useUserStore} from "@/store/user";
 import { storeToRefs } from "pinia";
 import {Biconomy} from "@biconomy/mexa";
 import Web3 from "web3";
+import { StaticJsonRpcProvider } from "@ethersproject/providers";
+import { AvatarResolver } from '@ensdomains/ens-avatar';
 
-const {setAddress, setETHProvider, setFVMProvider, setENSName,setBiconomyETH,setBiconomyFVM } = useUserStore()
+const {setAddress, setETHProvider, setFVMProvider, setENSName,setBiconomyETH,setBiconomyFVM, setEnsURI } = useUserStore()
 const {FVMProvider,biconomyFvm,address } = storeToRefs(useUserStore())
 
 const contractABI =[
@@ -217,12 +219,23 @@ export class BiconomyService {
     const accounts = await provider.listAccounts();
     if(accounts[0]){
       const address = await provider.lookupAddress(accounts[0])
-      setENSName(address ?? '')
+      if(address){
+        this.getEnsDetails(address)
+      }
+      
       setAddress(accounts[0]);
       this.socialLoginSDK.hideWallet();
       clearInterval(checkProvider)
     }
     }, 1000);
+  }
+
+  async  getEnsDetails(address:any){
+    setENSName(address)
+    const provider = new StaticJsonRpcProvider('https://mainnet.infura.io/v3/28efbcb80b3a49f692f07a2a7b869823');
+    const avt = new AvatarResolver(provider);
+    const avatarURI = await avt.getAvatar(address, { /* jsdomWindow: jsdom (on nodejs) */ });
+    setEnsURI(avatarURI!)
   }
 
   async postUserPost(cid:string){

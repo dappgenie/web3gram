@@ -15,7 +15,7 @@ import '../assets/css/biconomy.css'
 // const { address } = storeToRefs(useUserStore())
 import {useUserStore} from "@/store/user";
 import { storeToRefs } from "pinia";
-const {address,ensName } = storeToRefs(useUserStore())
+const {address,ensName,ensURI } = storeToRefs(useUserStore())
 const isOpen = ref<boolean>(false)
 const isLoginOpen = ref<boolean>(false)
 const router = useRouter()
@@ -61,7 +61,7 @@ onMounted(async () => {
           @click="signin()">
           <template #content> Login </template>
         </Button>
-        <div class="avatar"><img src="@/assets/images/user.jpeg"/></div>
+        <div v-if="address && ensName" class="avatar"><img :src="ensURI"/></div>
         <Dropdown id="nav-dropdown" parent-class="w-fit text-black dark:text-white" name="nav-dropdown">
           <template #default>
             <Button v-if="address" id="connect-wallet-btn" name="connect-wallet-btn" color="blue" rounded="full" w-fit>
